@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{{title}}</title>
+    <link href="/stylesheets/style.css"/>
+</head>
+<body>
+<h1>Users</h1>
+
+<div id="users" ng-repeat="user in users">
+    <div class="user">
+        <div class="created_at">{{user.created_at}}</div>
+        <div class="title">{{user.email}}</div>
+        <div class="name">{{user.user}}
+            <form method="post" action="/user/:id/delete"><input name="_id" type="hidden"
+                                                                     value="51f613c83815b83082000001"><input id="delete"
+                                                                                                             value="X"
+                                                                                                             type="submit">
+            </form>
+            <form method="get" action="/user/:id/edit"><input name="_id" type="hidden"
+                                                                  value="51f613c83815b83082000001"><input id="edit"
+                                                                                                          value="Edit"
+                                                                                                          type="submit">
+            </form>
+        </div>
+    </div>
+    <a href="/user/new">Add New User</a></div>
+</body>
+</html>

@@ -1,3 +1,7 @@
+dist
+.tmp
+.sass-cache
+app/bower_components
 authconf.js
 .idea/
 .idea/*

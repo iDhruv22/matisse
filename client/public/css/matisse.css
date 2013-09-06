@@ -1,0 +1,1687 @@
+.home .login {
+  width: auto;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #666;
+  background: #dde1e5 !important;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #1886db;
+}
+
+h2 span {
+  font-size: 25px;
+  font-weight: 400;
+  color: #39F;
+}
+
+h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #d3dae5;
+}
+
+pre {
+  display: inline-block;
+  padding-right: 15px;
+  margin-left: 15px;
+  background: #eef;
+}
+
+p {
+  /*margin-top:3px;
+margin-bottom:3px;*/
+
+  font-family: Verdana, Georgia, Serif;
+  font-size: 12px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.unhidden {
+  visibility: visible;
+}
+
+.inbox {
+  width: 50px;
+  padding: 2px;
+}
+
+textarea {
+  resize: none;
+}
+
+/*color {
+    width:100px;
+    height:23px;
+    margin:5px;
+    border: 1px solid #000;
+    text-align:center;
+    float:right;
+    font-size:12px;
+}*/
+
+.topicons {
+  position: relative;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+}
+
+.combo {
+  position: relative;
+  top: 20px;
+  width: 100px;
+  height: 20px;
+}
+
+* html #outer {
+  height: 100%;
+}
+
+/* IE6 and under treat height as min-height anyway*/
+
+#header {
+  height: 80px;
+  color: #fff;
+  text-decoration: none;
+}
+
+#leftdiv {
+  float: left;
+  width: 100px;
+}
+
+#accordion {
+  position: fixed;
+  width: 121px;
+  height: 94%;
+  overflow: hidden;
+  background-color: #464D57;
+}
+
+#toolsdiv {
+  height: 100%;
+  overflow: hidden;
+}
+
+#canvasId {
+  position: relative;
+  float: none;
+  overflow: auto;
+  background-color: #FFF;
+}
+
+#leftdiv p {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+#right {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+#version {
+  float: right;
+  margin: 5px 30px 0 0;
+  font-family: arial;
+  font-size: 13px;
+  color: #AAAAAA;
+}
+
+#user {
+  float: right;
+  margin: 5px 30px 0 0;
+  font-family: arial;
+  font-size: 13px;
+  color: #AAAAAA;
+}
+
+#menuicons {
+  margin: 55px 20px 0 0px;
+}
+
+#menuicons img {
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+
+#logo {
+  position: absolute;
+  left: 10px;
+}
+
+#leftdiv img {
+  cursor: pointer;
+}
+
+.tools {
+  width: 100px;
+  height: 100px;
+  margin: -12px 0 5px -30px;
+  cursor: pointer;
+  background: url('../images/tools_sprite.png') no-repeat;
+}
+
+#logo-wrapper {
+  float: left;
+  margin: 15px 0 0 30px;
+}
+
+#logo-tag-wrapper {
+  float: right;
+  font-family: arial;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#logo-tag-wrapper:hover {
+  color: #026CD0;
+}
+
+#icons-wrapper {
+  float: right;
+}
+
+.ui-accordion-content {
+  background-color: #D3DAE5;
+}
+
+.shape-active {
+  color: #FFF;
+  background-color: #9BA2AD;
+  -webkit-box-shadow: -1px -1px 2px 1px #666666 inset;
+     -moz-box-shadow: -1px -1px 2px 1px #666666 insets;
+          box-shadow: -1px -1px 2px 1px #666666 inset;
+}
+
+#shape {
+  text-align: center;
+}
+
+#shape img {
+  display: inline-block;
+}
+
+#shape-label {
+  position: relative;
+  top: -10px;
+  clear: both !important;
+  text-align: center !important;
+}
+
+.ui-accordion-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+div.scroller {
+  cursor: pointer;
+}
+
+.scroller-up {
+  height: 14px;
+  background: #aaaaaa url('../images/up_arrow.png') no-repeat center center;
+}
+
+.scroller-down {
+  height: 14px;
+  background: #8f98a6 url('../images/down_arrow.png') no-repeat center center;
+}
+
+.shapesHolder {
+  /*    overflow: auto;*/
+
+}
+
+.scrollerContentHolder {
+  position: relative;
+}
+
+#popUpDiv {
+  position: absolute;
+  z-index: 9002;
+  width: 300px;
+  height: 300px;
+  background-color: #eeeeee;
+}
+
+#helpDiv {
+  position: absolute;
+  z-index: 9003;
+  width: 800px;
+  height: 600px;
+  background-color: #eeeeee;
+}
+
+#helpInnerDiv {
+  padding: 15px !important;
+}
+
+#helpInnerDiv h1 {
+  padding: 10px;
+  color: white;
+  background: #474747;
+}
+
+#blanket {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9001;
+  width: 100%;
+  background-color: #111;
+  opacity: 0.65;
+  filter: alpha;
+}
+
+#loading {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 26em;
+  height: 11em;
+  padding: 1em 1em 2em;
+  margin-top: -7em;
+  margin-left: -14.5em;
+  text-align: center;
+  background: #464D57;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+#loading h4 {
+  margin: 0.5em 0;
+  font-size: 3em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.3em;
+  color: white;
+}
+
+img.spinner {
+  width: 42px;
+}
+
+#closediv a {
+  font-family: arial;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+
+input.file {
+  position: relative;
+  top: 20px;
+  z-index: 2;
+  width: 100px;
+  height: 16px;
+  text-align: right;
+  visibility: hidden;
+}
+
+.rightFloater {
+  float: right;
+}
+
+#introContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin-top: -150px;
+  margin-left: -150px;
+}
+
+.loginIcon {
+  width: 32px;
+  margin: 0 10px 0 0;
+  border: 0;
+}
+
+.profilePic {
+  width: 50px;
+  height: 50px;
+}
+
+#delete_menuItem {
+  position: absolute;
+  z-index: 1050;
+  width: 60px;
+  height: 20px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  cursor: default;
+  background: #eeeeee url('../images/delete_object.png') no-repeat;
+  border: 1px solid black;
+  -webkit-box-shadow: 0 8px 6px -6px #000000;
+     -moz-box-shadow: 0 8px 6px -6px #000000;
+          box-shadow: 0 8px 6px -6px #000000;
+}
+
+#loginLogo {
+  padding: 30px 0 10px 40px;
+}
+
+.rightHeader {
+  background-color: #464d57;
+}
+
+#testimonial {
+  padding: 20px 20px 20px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #1886DB;
+  text-align: justify;
+}
+
+#testimonial p {
+  margin: 0 0 0 40px;
+  font-style: italic;
+  color: #1886DB;
+}
+
+#rightQuote {
+  clear: both;
+}
+
+.leftHeader {
+  background-color: #ffffff;
+}
+
+#loginHeader {
+  background: #fff;
+}
+
+#loginContent {
+  background: #fff;
+}
+
+#loginFooter {
+  background: #fff;
+}
+
+#loginHeaderDivider {
+  background: url('../images/headerdivider_left.png') repeat-x;
+}
+
+#loginHeaderDividerLeft {
+  height: 20px;
+  background: url('../images/headerdivider_left.png') repeat-x;
+}
+
+#loginHeaderDividerRight {
+  height: 20px;
+  background: url('../images/headerdivider_right.png') repeat-x;
+}
+
+.content {
+  height: auto;
+}
+
+#loginLeftContent {
+  padding-left: 30px;
+}
+
+#userInfo .profileDetails {
+  min-height: 50px;
+  color: #8a9ab1;
+  text-align: center;
+}
+
+#userInfo .profileLink {
+  color: #1886DB;
+}
+
+#userInfo .profilePic {
+  margin-left: 20px;
+}
+
+#userInfo h6 {
+  font-size: 9px;
+}
+
+#userInfo .loginSource {
+  font-size: 11px;
+}
+
+#logoutLink {
+  padding-left: 4px;
+  color: #8A9AB1;
+}
+
+#loginLeftContent h3 {
+  padding-bottom: 5px;
+  margin: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #8a9ab1;
+}
+
+.loginIconBar {
+  display: inline;
+  margin: inherit;
+}
+
+.leftContentDivider {
+  margin: 30px 0 5px 40px;
+  border-top: 1px dotted #8a9ab1;
+  border-bottom: 0;
+}
+
+.blueButton {
+  padding: 7px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  background-color: #036cd7;
+  border: 1px solid #0460bd;
+  border-radius: 3px;
+}
+
+#loginRightContent {
+  background-color: #464d57;
+  /*display:none;*/
+
+}
+
+#loginRightContent h3 {
+  padding-left: 10px;
+  margin-left: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #d3dae5;
+}
+
+#rightContentButton {
+  margin: 0;
+}
+
+.greyButton {
+  padding: 7px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #ffff00;
+  background-color: #464d57;
+  border: 1px solid #414952;
+  border-radius: 3px;
+}
+
+ul.newFeatureList {
+  margin-left: 30px;
+  font-style: italic;
+  color: #d3dae5;
+  list-style-image: url('../images/bullet.png');
+}
+
+ul.newFeatureList li {
+  padding-left: 20px;
+  margin-top: 1em;
+}
+
+.dashes {
+  margin: 15px 30px 20px 50px;
+  border-top: 1px dotted #8a9ab1;
+  border-bottom: 0;
+}
+
+.carouselTitle {
+  padding-bottom: 30px;
+}
+
+#myCarousel {
+  padding-left: 30px;
+  margin-right: 20px;
+}
+
+#myCarousel .carousel-control {
+  top: 28% !important;
+  width: 0 !important;
+  margin-top: 0 !important;
+  border: 0px solid #000000 !important;
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+.thumbnails {
+  margin-left: 0 !important;
+}
+
+.dashboardThumbnail {
+  width: 140px;
+  height: 120px;
+}
+
+.thumbnail {
+  position: relative;
+  height: auto;
+  box-shadow: 0 0 0 0 #000 !important;
+}
+
+.thumbnails li {
+  margin-bottom: 0 !important;
+}
+
+.rightThumbnail {
+  padding-left: 40px !important;
+}
+
+.dashbaordRightThumbnail {
+  padding-left: 30px !important;
+}
+
+.sampleWb {
+  width: 240px;
+  height: 150px;
+  border: 1px none #000000 !important;
+  border-radius: 3px !important;
+}
+
+.sampleWb img {
+  border: 1px solid #464d57;
+  border-radius: 7px;
+  -webkit-box-shadow: 1px 1px 3px 2px #000000;
+     -moz-box-shadow: 1px 1px 3px 2px #000000;
+          box-shadow: 1px 1px 3px 2px #000000;
+}
+
+.dashboardWhiteBoardItem {
+  border: 0px none #464d57 !important;
+  border-radius: 3px !important;
+}
+
+.dashboardWhiteBoardItem img {
+  border: 0px solid #464d57;
+  border-radius: 7px;
+  -webkit-box-shadow: 1px 1px 3px 2px #000000;
+     -moz-box-shadow: 1px 1px 3px 2px #000000;
+          box-shadow: 1px 1px 3px #000000;
+}
+
+.leftThumbnail {
+  padding-left: 20px;
+}
+
+.thumbnailText {
+  padding-top: 15px;
+  color: #d3dae5;
+}
+
+.thumbnailText .italic {
+  margin-bottom: 0;
+  font-size: 9px;
+  font-style: italic;
+}
+
+.thumbnailCaption {
+  font-style: normal !important;
+  color: #1886DB;
+}
+
+#loginLeftFooter {
+  padding-left: 30px;
+  background-color: #ffffff;
+}
+
+#LeftFooterIcon {
+  padding: 20px 0 0px 0px;
+}
+
+#loginRightFooter {
+  background-color: #464d57;
+}
+
+#footer {
+  height: 49px;
+  padding: 20px 20px 20px 20px;
+  font-size: 13px;
+}
+
+.footerInner {
+  padding: 12px 0;
+  margin: 0 auto;
+}
+
+.footerMenu {
+  float: left;
+}
+
+.footerMenu a {
+  padding: 5px 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #8a9ab1;
+}
+
+.footerMenu a:hover {
+  color: #208fdb;
+  text-decoration: none;
+}
+
+.copyrights {
+  float: right;
+  font-size: 11px;
+  color: #8a9ab1;
+  text-align: right;
+}
+
+#loginFooterDivider {
+  background: url('../images/footerdivider_left.png') repeat-x;
+}
+
+#loginFooterDividerLeft {
+  height: 20px;
+  background: url('../images/footerdivider_left.png') repeat-x;
+}
+
+#loginFooterDividerRight {
+  height: 20px;
+  background: url('../images/footerdivider_right.png') repeat-x;
+}
+
+.numButton {
+  width: 85px;
+  height: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  color: #3ec259;
+  text-align: center;
+  background-color: #464d57;
+  border: 1px solid #414952;
+  -webkit-box-shadow: 2px 2px 2px #000;
+     -moz-box-shadow: 2px 2px 2px #000;
+          box-shadow: 2px 2px 2px #000;
+}
+
+#launchButton .btn {
+  padding: 5px 15px 3px 15px;
+  font-family: Helvetica Neue, Helvetica, sans-serif !important;
+  font-size: 18px !important;
+  color: #ffffff !important;
+  text-shadow: 0 -1px 0 rgba(1, 19, 2, 0.4);
+  background: #10B832;
+  border: 1px solid #78C975;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 1px #093D0B;
+     -moz-box-shadow: 1px 1px 1px #093D0B;
+          box-shadow: 1px 1px 1px #093D0B;
+}
+
+#rightHeaderContent {
+  padding-top: 10px;
+}
+
+#rightHeaderButton {
+  margin: 0;
+}
+
+#navBarSearch {
+  padding-top: 5px;
+}
+
+#navBarSearch .search-query {
+  width: 257px;
+  height: 27px;
+  font-style: italic;
+  background: #ffffff;
+  -webkit-border-radius: 2px !important;
+     -moz-border-radius: 2px !important;
+          border-radius: 2px !important;
+}
+
+.numButton h3 {
+  padding-top: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: #1886DB;
+}
+
+.numButton h6 {
+  padding-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  color: #ffffff;
+}
+
+#loginRightContent .whiteboardList {
+  min-height: 250px;
+}
+
+.whiteboardList li {
+  list-style: none;
+}
+
+#loginRightContent h3.dashboardRightContentHeading {
+  padding-right: 10px;
+  margin-left: 20px;
+}
+
+#showAllCreateWhiteBoard {
+  display: none;
+}
+
+#showAllCreateWhiteBoard a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #8a9ab1;
+}
+
+#showAllCreateWhiteBoard a:hover {
+  color: #208fdb;
+  text-decoration: none;
+}
+
+#showAllSharedWhiteBoard a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #8a9ab1;
+}
+
+#showAllSharedWhiteBoard a:hover {
+  color: #208fdb;
+  text-decoration: none;
+}
+
+#whiteboardForm h4 {
+  font-style: Normal !important;
+}
+
+#whiteboardForm input {
+  width: 220px;
+  height: auto;
+}
+
+#nameError {
+  display: none;
+  color: red;
+}
+
+.ownedBoardHide {
+  display: none;
+}
+
+.sharedBoardHide {
+  display: none;
+}
+
+/***  New Layout CSS **/
+
+#containerDiv {
+  height: 100%;
+  overflow: auto;
+  background-image: url('../images/canvas_bg.gif');
+}
+
+#containerBody {
+  position: relative;
+  height: 100%;
+  margin: 10px auto;
+  overflow: auto;
+}
+
+#leftdiv {
+  float: left;
+  width: 121px;
+}
+
+#outer {
+  height: 100%;
+  background-color: #464D57;
+}
+
+#userLoginService {
+  color: #00B7FF;
+}
+
+.rightFloater {
+  float: right;
+}
+
+.new-logo-cntr {
+  padding: 5px 5px 10px 5px;
+  background-color: #222629;
+  border-bottom: 1px solid #0E1215;
+}
+
+.new-logo {
+  width: 95px;
+  height: 24px;
+  background: url('../images/logo_white.png') no-repeat;
+}
+
+.p-header {
+  cursor: pointer;
+  background-color: #2A2F35;
+  border-bottom: 1px solid #0E1215;
+}
+
+.p-text {
+  width: 75%;
+  padding: 2px 0 2px 5px;
+  font-family: Trebuchet MS;
+  font-size: 10px;
+  color: #BCCED0;
+  text-transform: uppercase;
+}
+
+.p-header.p-open .p-icon {
+  float: right;
+  width: 9px;
+  height: 5px;
+  margin: -13px 5px 0 0;
+  background: url('../images/expand.png') no-repeat;
+}
+
+.p-header.p-close .p-icon {
+  float: right;
+  width: 9px;
+  height: 5px;
+  margin: -13px 5px 0 0;
+  background: url('../images/collapse.png') no-repeat;
+}
+
+.p-cntr {
+  display: none;
+  background-color: #464D57;
+}
+
+.shape-holder {
+  cursor: pointer;
+  border-bottom: 1px groove #0E1215;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.b-userpic {
+  width: 32px;
+  height: 32px;
+  margin: 6px 5px 0;
+  border-radius: 2px;
+}
+
+.b-userpic-big {
+  width: 48px;
+  height: 48px;
+  margin: 6px 5px 0;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+
+.userInfoSec {
+  position: absolute;
+  top: 65px;
+  right: 5px;
+  z-index: 10000;
+  width: 200px;
+  width: 250px;
+  padding: 10px 10px 4px 10px;
+  font-size: 12px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px #000000;
+}
+
+.userpic-big-sec {
+  display: block;
+  float: left;
+  width: 60px;
+}
+
+.user-info-data {
+  padding-top: 5px;
+}
+
+.u-wb-title {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.b-uinfo-links {
+  padding: 5px 0 0 0;
+  clear: left;
+  font-size: 11px;
+}
+
+.b-backarrow {
+  padding-right: 2px;
+  font-size: 11px;
+}
+
+.user-wbs {
+  margin-top: 5px;
+  clear: both;
+}
+
+.u-wb-row {
+  padding: 2px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.user-email {
+  color: #00B7FF;
+}
+
+/******** Overriding few classes of short scroll -Start ********/
+
+.scroll-up-btn {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: url('../images/scroll_up.png') no-repeat;
+}
+
+.scroll-down-btn {
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin-top: -1px;
+  background: url('../images/scroll_down.png') no-repeat;
+}
+
+.scroll-middle-btn {
+  display: block;
+  width: 10px;
+  height: 50px;
+  margin-top: -1px;
+  margin-left: 1px;
+  background: url('../images/scroll_mid.png') repeat-y;
+  border-radius: 5px;
+}
+
+.jb-shortscroll-marker {
+  height: 57px !important;
+}
+
+.jb-shortscroll-scrollbar {
+  height: 57px !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
+.jb-shortscroll-scrollbar-btn {
+  border: 1px solid transparent !important;
+}
+
+.jb-shortscroll-scrollbar .jb-shortscroll-scrollbar-middle,
+.jb-shortscroll-scrollbar .jb-shortscroll-scrollbar-btn {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.jb-shortscroll-marker {
+  display: none !important;
+}
+
+.jb-shortscroll-stopper {
+  display: none !important;
+}
+
+/******** Overriding few classes of short scroll -End ********/
+
+/************** Palette Shapes -- START -- ****************/
+
+.shape-selected {
+  background-color: #036bd5;
+}
+
+.shape-label {
+  padding: 5px 0;
+  color: #B8C2CB;
+  text-align: center;
+}
+
+.basic-shape {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  background: url('../images/white_shapes_48.png') no-repeat;
+  background-position: 0 0;
+}
+
+.s-label {
+  background-position: 0 -776px;
+}
+
+.s-txt_button {
+  background-position: 0 -628px;
+}
+
+.s-textbox {
+  background-position: 0 -333px;
+}
+
+.s-checkbox {
+  background-position: 0 -530px;
+}
+
+.s-radio {
+  background-position: 0 -482px;
+}
+
+.s-combo {
+  background-position: 0 -433px;
+}
+
+.s-list {
+  background-position: 0 -235px;
+}
+
+.s-table {
+  background-position: 0 -284px;
+}
+
+.s-slider {
+  background-position: 0 -820px;
+}
+
+.s-progressbar {
+  background-position: 0 -672px;
+}
+
+.s-image {
+  background-position: 0 -726px;
+}
+
+.s-password {
+  background-position: 0 -384px;
+}
+
+.s-scrollbar {
+  background-position: 0 -579px;
+}
+
+.s-div {
+  background-position: 0 -90px;
+}
+
+.s-rectangle {
+  background-position: 0 -90px;
+}
+
+.s-circle {
+  background-position: 0 -40px;
+}
+
+.s-triangle {
+  height: 40px;
+  background-position: 0 -924px;
+}
+
+.s-text {
+  background-position: 0 -192px;
+}
+
+.s-line {
+  background-position: 0 -970px;
+}
+
+.s-path {
+  background-position: 0 -136px;
+}
+
+/************** Palette Shapes -- END -- ****************/
+
+/************** Right Hand Side Menu Actions -- START -- ****************/
+
+.rightdiv {
+  float: right;
+  width: 52px;
+  height: 100%;
+}
+
+.rightdiv .top {
+  position: absolute;
+  top: 0;
+  height: 80%;
+  padding-bottom: 90px;
+  background-color: #464D57;
+}
+
+.rightdiv .bottom {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 52px;
+  max-height: 100%;
+  background: #464D57;
+}
+
+.rightdiv .bottom a,
+.rightdiv .bottom a:link,
+.rightdiv .bottom a:visited,
+.rightdiv .bottom a:hover,
+.rightdiv .bottom a:active {
+  color: #B8C2CB;
+  text-decoration: none;
+}
+
+.user-image {
+  width: 42px;
+  height: 53px;
+  margin: 8px 5px;
+  background: url('../images/userprofile_bg.png') no-repeat;
+}
+
+.board-name {
+  position: absolute;
+  top: 250px;
+  right: 27px;
+  width: auto;
+  height: 26px;
+  overflow: hidden;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #E3E6E9;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #464D57;
+  -webkit-transform: rotate(90deg);
+     -moz-transform: rotate(90deg);
+  -moz-transform-origin: right;
+  -webkit-transform-origin-x: right;
+}
+
+.thumbnailText .success {
+  color: #10B832;
+}
+
+.thumbnailText .error {
+  color: red;
+}
+
+.menu-holder {
+  position: relative;
+  width: 52px;
+  padding: 3px 0;
+  color: #B8C2CB;
+  text-align: center;
+  cursor: pointer;
+  border-top: 1px groove #0E1215;
+}
+
+.menu-holder:hover {
+  color: #FFFFFF;
+  background-color: #036bd5;
+  border-top: 1px groove #000000;
+}
+
+.m-label {
+  font-size: 11px;
+}
+
+.m-selected {
+  background-color: #036bd5;
+}
+
+.m-icon {
+  width: 28px;
+  height: 28px;
+  margin: 3px auto 0;
+  background: url('../images/white_menu_24.png') no-repeat;
+  background-position: 0 0;
+}
+
+.m-save {
+  background-position: 0 0;
+}
+
+.m-edit {
+  background-position: 0 -54px;
+}
+
+.m-view {
+  background-position: 0 -106px;
+}
+
+.m-share {
+  background-position: 0 -162px;
+}
+
+.m-discuss {
+  background-position: 0 -218px;
+}
+
+.m-report {
+  background-position: 0 -268px;
+}
+
+.m-help {
+  background-position: 0 -324px;
+}
+
+.m-friends {
+  background-position: 0 -364px;
+}
+
+.m-submenu-list {
+  position: absolute;
+  top: -3px;
+  right: 58px;
+  z-index: 1035;
+  display: none;
+  width: 148px;
+  height: auto;
+  background-color: #FFFFFF;
+  border-radius: 4px 4px 4px 4px;
+  -webkit-box-shadow: 0 0 5px #888888;
+     -moz-box-shadow: 0 0 5px #888888;
+          box-shadow: 0 0 5px #888888;
+}
+
+.menu-arrow {
+  position: relative;
+  top: 21px;
+  left: 148px;
+  display: block;
+  width: 18px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #ffffff;
+}
+
+.menu-list {
+  margin-top: -13px;
+  color: #666666;
+  text-align: left;
+  list-style: none;
+}
+
+.menu-list li {
+  position: relative;
+  padding: 3px;
+  margin: 0 15px 0 -10px;
+  font-weight: bold;
+}
+
+.menu-list li:not(:last-child) {
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.menu-list li.disabled {
+  color: #bbb;
+}
+
+.menu-shortcut {
+  position: absolute;
+  right: 2px;
+  font-weight: normal;
+  color: #CCCCCC;
+}
+
+#chatdialog ul {
+  height: 10em;
+  padding: 5px;
+  margin-left: 0;
+  overflow: auto;
+  list-style: none;
+  border: 1px solid lightblue;
+}
+
+/************** Right Hand Side Menu Actions -- End -- ****************/
+
+/************** Quick Action Menu -- Start -- ************************/
+
+.menu-arrow-top {
+  position: relative;
+  top: -4px;
+  left: -20px;
+  display: block;
+  width: 0;
+  border-color: transparent transparent #FFFFFF;
+  border-style: solid;
+  border-width: 10px;
+}
+
+.m-align-list {
+  position: absolute;
+  top: 34px;
+  z-index: 1035;
+  display: none;
+  width: 204px;
+  height: auto;
+  background-color: #FFFFFF;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 0 5px #888888;
+}
+
+.m-quick-edit,
+.m-quick-edit-group {
+  position: absolute;
+  top: 30px;
+  left: 380px;
+  display: none;
+  width: auto;
+  height: 25px;
+  padding: 2px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-radius: 4px 4px 4px 4px;
+  -webkit-box-shadow: 0 0 5px #888888;
+     -moz-box-shadow: 0 0 5px #888888;
+          box-shadow: 0 0 5px #888888;
+}
+
+.m-quick-edit > span:not(:last-child),
+.m-quick-edit-group > span:not(:last-child) {
+  border-right: 1px solid #CCCCCC;
+}
+
+.m-quick-edit > span,
+.m-quick-edit-group > span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 5px;
+  background: url('../images/quicklaunch_sprite.png') no-repeat;
+}
+
+.m-quick-edit span.prop_icon {
+  background-position: 0 0;
+}
+
+.m-quick-edit span.prop_icon:hover,
+.m-quick-edit span.prop_icon.selected {
+  background-position: 0 -24px;
+}
+
+.m-quick-edit span.copy_icon,
+.m-quick-edit-group span.copy_icon {
+  background-position: -24px 0;
+}
+
+.m-quick-edit span.copy_icon:hover,
+.m-quick-edit span.copy_icon.selected,
+.m-quick-edit-group span.copy_icon:hover,
+.m-quick-edit-group span.copy_icon.selected {
+  background-position: -24px -24px;
+}
+
+.m-quick-edit span.del_icon,
+.m-quick-edit-group span.del_icon {
+  background-position: -48px 0;
+}
+
+.m-quick-edit span.del_icon:hover,
+.m-quick-edit-group span.del_icon:hover {
+  background-position: -48px -24px;
+}
+
+div.clip-alert {
+  z-index: 9002;
+}
+
+div.inactive-alert {
+  position: absolute;
+  top: 0;
+  left: 37%;
+  display: none;
+}
+
+/************** Quick Action Menu -- End -- ************************/
+
+/************** Overloading Dialog Styles  -- Start -- ****************/
+
+.ui-widget-header {
+  background: #046Ad6;
+  border-radius: 5px 5px 0 0;
+}
+
+.ui-dialog {
+  padding: 0 !important;
+  box-shadow: 1px 1px 1px #000000;
+}
+
+.ui-widget-content {
+  background: #F7F7F9;
+  border-width: 0 !important;
+}
+
+.ui-dialog-content {
+  border: 1px solid #EEEEEE !important;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  padding: 0.1em 0.4em;
+}
+
+/************** Overloading Dialog Styles  -- End -- ****************/
+
+.json-export {
+  width: 90%;
+  height: 65%;
+}
+
+.thumbnailCaption.editable {
+  padding: 0 0 0 15px;
+  background-image: url('../images/icon-pencil.png');
+  background-repeat: no-repeat;
+}
+
+/************** Delete WhiteBoard Transition -- Start -- ************/
+
+.delete-board {
+  position: absolute;
+  width: 95%;
+  height: 25px;
+  cursor: pointer;
+  background: #FFFFFF;
+  border-radius: 4px 4px 4px 4px;
+  opacity: 0.5;
+  box-shadow: 0 0 0 0 #000;
+}
+
+.delete-ico {
+  width: 16px;
+  height: 16px;
+  padding-top: 7px;
+  background: #ffffff url('../images/deleteBoard.png') center no-repeat;
+}
+
+.del-animation {
+  -webkit-animation-duration: 1s;
+     -moz-animation-duration: 1s;
+      -ms-animation-duration: 1s;
+       -o-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+      -ms-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+  -webkit-animation-name: del-animation;
+     -moz-animation-name: del-animation;
+      -ms-animation-name: del-animation;
+       -o-animation-name: del-animation;
+  -webkit-animation-direction: normal;
+     -moz-animation-direction: normal;
+       -o-animation-direction: normal;
+      -ms-animation-direction: normal;
+}
+
+@-webkit-keyframes del-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  40% {
+    -webkit-transform: rotate(0deg);
+  }
+  45% {
+    -webkit-transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+  }
+  55% {
+    -webkit-transform: rotate(10deg);
+  }
+  60% {
+    -webkit-transform: rotate(0deg);
+  }
+  65% {
+    -webkit-transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(0deg);
+  }
+  75% {
+    -webkit-transform: rotate(10deg);
+  }
+  80% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-moz-keyframes del-animation {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  40% {
+    -moz-transform: rotate(0deg);
+  }
+  45% {
+    -moz-transform: rotate(-10deg);
+  }
+  50% {
+    -moz-transform: rotate(0deg);
+  }
+  55% {
+    -moz-transform: rotate(10deg);
+  }
+  60% {
+    -moz-transform: rotate(0deg);
+  }
+  65% {
+    -moz-transform: rotate(-10deg);
+  }
+  70% {
+    -moz-transform: rotate(0deg);
+  }
+  75% {
+    -moz-transform: rotate(10deg);
+  }
+  80% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(0deg);
+  }
+}
+
+@-o-keyframes del-animation {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  40% {
+    -o-transform: rotate(0deg);
+  }
+  45% {
+    -o-transform: rotate(-10deg);
+  }
+  50% {
+    -o-transform: rotate(0deg);
+  }
+  55% {
+    -o-transform: rotate(10deg);
+  }
+  60% {
+    -o-transform: rotate(0deg);
+  }
+  65% {
+    -o-transform: rotate(-10deg);
+  }
+  70% {
+    -o-transform: rotate(0deg);
+  }
+  75% {
+    -o-transform: rotate(10deg);
+  }
+  80% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(0deg);
+  }
+}
+
+@-ms-keyframes del-animation {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  40% {
+    -ms-transform: rotate(0deg);
+  }
+  45% {
+    -ms-transform: rotate(-10deg);
+  }
+  50% {
+    -ms-transform: rotate(0deg);
+  }
+  55% {
+    -ms-transform: rotate(10deg);
+  }
+  60% {
+    -ms-transform: rotate(0deg);
+  }
+  65% {
+    -ms-transform: rotate(-10deg);
+  }
+  70% {
+    -ms-transform: rotate(0deg);
+  }
+  75% {
+    -ms-transform: rotate(10deg);
+  }
+  80% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(0deg);
+  }
+}
+
+/************** Delete WhiteBoard Transition -- End -- ************/
+
+#device-container {
+  position: absolute;
+  display: none;
+  cursor: move;
+}
+
+.scale-container {
+  -webkit-transform: scale(0.75);
+     -moz-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+       -o-transform: scale(0.75);
+          transform: scale(0.75);
+}

@@ -8,13 +8,18 @@ angular.module('httpService', []).
                     error(onError);
             },
             urlMap = {
-                authenticate: "/authenticate"
+                authenticate: "/authenticate",
+                logout: "/logout"
             },
             authenticateUser = function (params, onSuccess, onError) {
                 postHandler(urlMap.authenticate, params, onSuccess, onError);
+            },
+            logoutUser = function (params, onSuccess, onError) {
+                postHandler(urlMap.logout, params, onSuccess, onError);
             };
 
         return {
-            authenticate: authenticateUser
+            authenticate: authenticateUser,
+            logout: logoutUser
         };
     }]);

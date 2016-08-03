@@ -1,4 +1,4 @@
-!!!! 5
+doctype html
 html
   head
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -12,7 +12,7 @@ html
     script(type='text/javascript', src='/javascripts/thirdparty/jquery/jquery.jeditable.mini.js')
     script(type='text/javascript', src='/javascripts/matisse/inline-edit.js')
     script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap.js')
-    script(type='text/javascript')
+    script(type='text/javascript').
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-7516685-6']);
@@ -35,90 +35,83 @@ html
   body!= body
     div(class='container')
       div(class='row', id='loginHeader')
-
         div(class='span4 leftHeader')
           div#loginLogo
             img(src='images/mattise_whitebg.png')
-
         div(class='span8 rightHeader')
           div(class='text', id='testimonial')
-            - if(everyauth.loggedIn)
-                div(class='row', id='rightheaderContent')
-                  div.span4
-                    div(class='btn-toolbar', id='rightHeaderButton')
-                      div(class='btn-group', style='padding-right: 10px;')
-                        div.numButton
-                          h3 #{createdNum}
-                          h6 Owned by Me
-                      div(class='btn-group')
-                        div.numButton
-                          h3 #{sharedNum}
-                          h6 Shared with Me
-                  div(class='span3')
-                    div.row
-                      div.span3
-                        div(class='btn-group pull-right', id='launchButton')
-                          button(class='btn btn-action', data-toggle='modal', data-target="#whiteboardForm")
-                            h3 New Whiteboard &raquo;
-            - else
-                div.span1
-                  img(src='images/blockquotes_start.png', alt='"', align='top', width='20', height='20', class='pull-left')
-                div.span7
-                  p Balance between wait-times of emails and misunderstandings of a phone call, Matisse grounds the discussion and reveals interpretation gaps. A whiteboarding application with real-time canvas sharing and chat. Collaborate and sketch simultaneously, build wireframes, draw html elements or share screenshots.
-                div#rightQuote
-                  img(src='images/blockquotes_end.png', alt='"', align='top', class='pull-right', width='20', height='20')
-
-      div(class='row', id='loginHeaderDivider')
-
-        div(class='span4', id='loginHeaderDividerLeft')
-
-        div(class='span8', id='loginHeaderDividerRight')
-
-      div(class='row content', id='loginContent')
-
-        div(class='span4', id='loginLeftContent')
-          - if(everyauth.loggedIn)
+            if everyauth.loggedIn
+              div(class='row', id='rightheaderContent')
+                div.span4
+                  div(class='btn-toolbar', id='rightHeaderButton')
+                    div(class='btn-group', style='padding-right: 10px;')
+                      div.numButton
+                        h3 #{createdNum}
+                        h6 Owned by Me
+                    div(class='btn-group')
+                      div.numButton
+                        h3 #{sharedNum}
+                        h6 Shared with Me
+                div(class='span3')
+                  div.row
+                    div.span3
+                      div(class='btn-group pull-right', id='launchButton')
+                        button(class='btn btn-action', data-toggle='modal', data-target="#whiteboardForm")
+                      h3 New Whiteboard &raquo;
+            else
+              div.span1
+                img(src='images/blockquotes_start.png', alt='"', align='top', width='20', height='20', class='pull-left')
+              div.span7
+                p Balance between wait-times of emails and misunderstandings of a phone call, Matisse grounds the discussion and reveals interpretation gaps. A whiteboarding application with real-time canvas sharing and chat. Collaborate and sketch simultaneously, build wireframes, draw html elements or share screenshots.
+              div#rightQuote               
+                img(src='images/blockquotes_end.png', alt='"', align='top', class='pull-right', width='20', height='20')
+        div(class='row', id='loginHeaderDivider')
+          div(class='span4', id='loginHeaderDividerLeft')
+            div(class='span8', id='loginHeaderDividerRight')
+        div(class='row content', id='loginContent')
+          div(class='span4', id='kloginLeftContent')
+            if everyauth.loggedIn
               div.row
                 div.span4
                   h3 Welcome,
               div(class='row', id='userInfo')
-                - if(everyauth.twitter)
-                    div.span1
-                      img(class="profilePic",src="#{everyauth.twitter.user.profile_image_url}")
-                    div(class='span3')
-                      div.profileDetails
-                        div(class='pull-left')
-                          a #{everyauth.twitter.user.name}
-                          a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
-                        div(class='pull-right')
-                          h6 via
-                          a(class='loginSource pull-right') Twitter
-                else if(everyauth.facebook)
-                    div.span1
-                      img(class="profilePic",src="images/default.jpg")
-                    div(class='span3')
-                      div.profileDetails
-                        div(class='pull-left')
-                          a #{everyauth.facebook.user.name}
-                          a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
-                        div(class='pull-right')
-                          h6 via
-                          a(class='loginSource pull-right') Facebook
-                else if(everyauth.google)
-                    div.span1
-                      img(class="profilePic",src="#{everyauth.google.user.picture ? everyauth.google.user.picture : 'images/default.jpg'}")
-                    div(class='span3')
-                      div.profileDetails
-                        div(class='pull-left')
-                          a #{everyauth.google.user.name}
-                          a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
-                        div(class='pull-right')
-                          h6 via
-                          a(class='loginSource pull-right') Google
+                if everyauth.twitter
+                  div.span1
+                    img(class="profilePic",src="#{1}")
+                  div(class='span3')
+                    div.profileDetails
+                      div(class='pull-left')
+                        a #{1}
+                        a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
+                      div(class='pull-right')
+                        h6 via
+                        a(class='loginSource pull-right') Twitter
+                else if everyauth.facebook
+                  div.span1
+                    img(class="profilePic",src="images/default.jpg")
+                  div(class='span3')
+                    div.profileDetails
+                      div(class='pull-left')
+                        a #{1}
+                        a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
+                      div(class='pull-right')
+                        h6 via
+                        a(class='loginSource pull-right') Facebook
+                else if everyauth.google
+                  div.span1
+                    img(class="profilePic",src="#{everyauth.google.user.picture ? everyauth.google.user.picture : 'images/default.jpg'}")
+                  div(class='span3')
+                    div.profileDetails
+                      div(class='pull-left')
+                        a #{everyauth.google.user.name}
+                        a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
+                      div(class='pull-right')
+                        h6 via
+                        a(class='loginSource pull-right') Google
               div(class='row')
                 hr(class='leftContentDivider')
               div.row
-          - else
+            else
               h3 Login with
               div(class='loginIconBar')
                 a(href='/auth/twitter', style='border: 0px')
@@ -128,165 +121,142 @@ html
                 a(href='auth/google')
                   img(class='loginIcon', src='images/login icons/google-new.png')
               hr
-              h3(style='font-size:1.3em') 
+              h3(style='font-size:1.3em')
                 a(href='http://youtu.be/F4hA1A1PVxw') Watch Demo (3m 50s)
               div#demovid
                 iframe(width='300', height='169', src='https://www.youtube.com/embed/F4hA1A1PVxw', frameborder='0', allowfullscreen='true')
         div(class='span8', id='loginRightContent')
-          - if(!everyauth.loggedIn)
-                div(class='row')
-                  div(class='span4')
-                    h3 &nbsp;
-                  div(class='span4')
-                    div(class='btn-toolbar pull-left', id='rightContentButton')
-                      div(class='btn-group')
-                        button(class='greyButton') Version: 0.6Alpha
-                      div(class='btn-group')
-                        button(class='greyButton') Last updated July 31,2012
-                div(class='row')
-                  div(class='span8')
-                div(class='row')
-                  hr(class='dashes')
-                div(class='row')
-                  div(class='span6 rightContent carouselTitle')
-                    h3 Sample whiteboards
-                  div(class='span2 carousalPager')
-                div(class='row')
-                  div(class='span8 columns')
-                    div(id='myCarousel', class='carousel slide')
-                      div(class='carousel-inner')
-                        div(class='active item')
-                          ul(class='thumbnails')
-                            li(class='span3 leftThumbnail')
-                                div(class='thumbnail sampleWb')
-                                  img(src='images/whiteboard1.png', alt='')
-                                div(class='thumbnailText')
-                            li(class='span3 rightThumbnail')
-                                div(class='thumbnail sampleWb')
-                                  img(src='images/whiteboard2.png', alt='')
-                                div(class='thumbnailText')
-                        div(class='item')
-                          ul(class='thumbnails')
-                            li(class='span3 leftThumbnail')
-                                div(class='thumbnail sampleWb')
-                                  img(src='images/whiteboard1.png', alt='')
-                                div(class='thumbnailText')
-                            li(class='span3 rightThumbnail')
-                                div(class='thumbnail sampleWb')
-                                  img(src='images/whiteboard2.png', alt='')
-                                div(class='thumbnailText')
-                      a(class='carousel-control homepage left', href='#myCarousel', data-slide='prev') &lsaquo;
-                      a(class='carousel-control homepage right', href='#myCarousel', data-slide='next') &rsaquo;
-          - else
-                div(class='row')
-                  div(class='span8 pull-left')
-                    h3.dashboardRightContentHeading Owned by me
-                div(class='row')
-                  div(class='span8 columns whiteboardList', id='ownedBoardList')
-                    ul(class='thumbnails')
-                    for board in ownedBoards
-                      li(class='span2 dashboard#{ownedBoards.indexOf(board) == 0 || ownedBoards.indexOf(board)%3 == 0 ? "Left" : "Right"}Thumbnail #{ownedBoards.indexOf(board) > 2 ? "ownedBoardHide" : ""}')
-                        div(class='thumbnail dashboardThumbnail dashboardWhiteBoardItem')
-                          div(class='delete-board', boardUrl='#{board.url}', name='#{board.name}', title='Delete Board')
-                            center
-                              div(class='delete-ico') 
-                          a(href='/boards/#{board.url}')
-                            img(src='images/140x120.gif', alt='')
+          if !everyauth.loggedIn
+            div(class='row')
+              div(class='span4')
+                h3 &nbsp;
+              div(class='span4')
+                div(class='btn-toolbar pull-left', id='rightContentButton')
+                  div(class='btn-group')
+                    button(class='greyButton') Version: 0.6Alpha
+                  div(class='btn-group')
+                    button(class='greyButton') Last updated July 31,2012
+            div(class='row')
+              div(class='span8')
+            div(class='row')
+              hr(class='dashes')
+            div(class='row')
+              div(class='span6 rightContent carouselTitle')
+                h3 Sample whiteboards
+              div(class='span2 carousalPager')
+            div(class='row')
+              div(class='span8 columns')
+                div(id='myCarousel', class='carousel slide')
+                  div(class='carousel-inner')
+                    div(class='active item')
+                      ul(class='thumbnails')
+                        li(class='span3 leftThumbnail')
+                          div(class='thumbnail sampleWb')
+                            img(src='images/whiteboard1.png', alt='')
                           div(class='thumbnailText')
-                            p(class='thumbnailCaption editable', id='board-name-#{board.id}') #{board.name}
-                div.row
-                  div(class='span2 offset6', id='showAllCreateWhiteBoard')
-                    a(class='pull-left', href='#', id='showOwned') Show all
-                div(class='row')
-                  hr(class='dashes')
-                div(class='row')
-                  div(class='span8 dashboardRightContent')
-                    h3.dashboardRightContentHeading Shared with me
-                div(class='row')
-                  div(class='span8 columns whiteboardList')
-                    ul(class='thumbnails')
-                    for board in sharedBoards
-                      li(class='span2 dashboard#{sharedBoards.indexOf(board) == 0 || sharedBoards.indexOf(board)%3 == 0 ? "Left" : "Right"}Thumbnail #{sharedBoards.indexOf(board) > 2 ? "sharedBoardHide" : ""}')
-                        div(class='thumbnail dashboardThumbnail dashboardWhiteBoardItem')
-                          a(href='/boards/#{board.url}')
-                            img(src='images/140x120.gif', alt='')
+                        li(class='span3 rightThumbnail')
+                          div(class='thumbnail sampleWb')
+                            img(src='images/whiteboard2.png', alt='')
                           div(class='thumbnailText')
-                            p.thumbnailCaption #{board.name}
-                            p.thumbnailCaption #{board.createdBy}
-                div.row
-                  div(class='span2 offset6', id='showAllCreateWhiteBoard')
-                    a(class='pull-left', href='#', id='showShared') Show all
+                    div(class='item')
+                      ul(class='thumbnails')
+                        li(class='span3 leftThumbnail')
+                          div(class='thumbnail sampleWb')
+                            img(src='images/whiteboard1.png', alt='')
+                          div(class='thumbnailText')
+                        li(class='span3 rightThumbnail')
+                          div(class='thumbnail sampleWb')
+                            img(src='images/whiteboard1.png', alt='')
+                          div(class='thumbnailText')
+                        li(class='span3 rightThumbnail')
+                          div(class='thumbnail sampleWb')
+                            img(src='images/whiteboard2.png', alt='')
+                          div(class='thumbnailText')
+                  a(class='carousel-control homepage left', href='#myCarousel', data-slide='prev') &lsaquo;
+                  a(class='carousel-control homepage right', href='#myCarousel', data-slide='next') &rsaquo;
+          else
+            div(class='row')
+              div(class='span8 pull-left')
+                h3.dashboardRightContentHeading Owned by me
+            div(class='row')
+              div(class='span8 columns whiteboardList', id='ownedBoardList')
+            div(class='row')
+              div(class='span2 offset6', id='showAllCreateWhiteBoard')
+                a(class='pull-left', href='#', id='showOwned') Show all
+            div.row
+              hr.dashes
+            div.row
+              div(class='span8 dashboardRightContent')
+                h3.dashboardRightContentHeading Shared with me
+            div(class='row')
+              div(class='span8 columns whiteboardList')
+            div.row
+              div(class='span2 offset6', id='showAllCreateWhiteBoard')
+                a(class='pull-left', href='#', id='showShared') Show all
+  div(class='row', id='loginFooterDivider')
+    div(class='span4', id='loginFooterDividerLeft')
+    div(class='span8', id='loginFooterDividerRight')
+  div(class='row', id='loginFooter')
+    div(class='span4 leftFooter', id='loginLeftFooter')
+      div(class='row', id='leftFooterIcon')
+        div(class='span')
+            a(href="https://plus.google.com/109117794938178674717", rel="publisher") Find us on Google+
+        div(class='span  pull-right')
+    div(class='span8', id='loginRightFooter')
+      div(id='footer')
+        div(class='footerInner')
+          div(class='footerMenu')
+            a(href='/about', style='display: none;') About Us
+            a(href='https://github.com/Imaginea/matisse/wiki') Matisse Wiki
+            a(href='https://github.com/Imaginea/matisse') Github Repository
+            a(href='https://github.com/Imaginea/matisse/issues') Bug Tracker
+    div(class='modal hide fade', id='whiteboardForm', style='display: none;')
+      div(class='modal-header')
+        h4 New whiteboard
+          a(class='close', data-dismiss='modal') x
+      div(class='modal-body')
+        form(name='whiteboard', id='whiteboard', class='form-horizontal', method='post', action='/boards/')
+          fieldset
+            div(class='control-group', id="whiteboardName")
+              label(class='control-label', for='whiteboardName') Name*:
+              div(class='controls')
+                input(name='whiteboardName', id="name", type="text", placeholder="Name")
+                div(id='nameError') Please enter a valid name!
+            div(class='control-group', id="containerlist", style='display:none')
+              label(class='control-label', for='containerListInput') Container type:
+              div(class='controls')
+                select(name='container', id="containers")
+                  option(value="desktop-1024x768", id="desktop-1024x768") Desktop-1024x768
+                  option(value="desktop-1280x1024", id="desktop-1280x1024") Desktop-1280x1024
+                  option(value="iphone", id="iPhone") iPhone
+                  option(value="ipad", id="iPad") iPad
+                  option(value="blackberry", id="BlackBerry") BlackBerry
+                  option(value="browser", id="Browser") Browser
+            div(class='control-group', id="layoutList", style='display:none')
+              label(class='control-label', for='layoutListInput') Template:
+              div(class='controls')
+                select(name='layout', id="layouts")
+                  optgroup(label="content")
+                    option(value="blank", id="blank") Blank
+                    option(value="column_header", id="column_header") Column_header
+                    option(value="column_header_footer", id="column_header_footer") Column_Header_Footer
+                    option(value="two_column_header", id="two_column_header") Two_Column_Header
+                    option(value="two_column_header_footer", id="two_column_header_footer") Two_Column_Header_Footer
+                    option(value="three_column_header", id="three_column_header") Three_Column_Header
+                    option(value="three_column_header_footer", id="three_column_header_footer") Three_Column_Header_Footer
+            div(class='control-group', id="canvaswidth", style='display:none')
+              label(class='control-label', for='canvasWidth') Canvas Width:
+              div(class='controls')
+                input(name='canvasWidth', id="canvasWidth", type="text", value="1024")
+            div(class='control-group', id="canvasheight", style='display:none')
+              label(class='control-label', for='canvasWidth') Canvas Height:
+              div(class='controls')
+                input(name='canvasHeight', id="canvasHeight", type="text", value="768")
+      div(class='modal-footer')
+        p(class="help-block pull-left") *Required
+        a(href='#', class='btn btn-primary', data-dismiss='modal', id='createWhiteboard') Create
+        a(href='#', class='btn', data-dismiss='modal') Cancel
 
-
-      div(class='row', id='loginFooterDivider')
-
-        div(class='span4', id='loginFooterDividerLeft')
-
-        div(class='span8', id='loginFooterDividerRight')
-
-
-      div(class='row', id='loginFooter')
-
-        div(class='span4 leftFooter', id='loginLeftFooter')
-          div(class='row', id='leftFooterIcon')
-            div(class='span')
-              a(href="https://plus.google.com/109117794938178674717", rel="publisher") Find us on Google+
-            div(class='span  pull-right')
-
-        div(class='span8', id='loginRightFooter')
-          div(id='footer')
-           div(class='footerInner')
-             div(class='footerMenu')
-               a(href='/about', style='display: none;') About Us
-               a(href='https://github.com/Imaginea/matisse/wiki') Matisse Wiki
-               a(href='https://github.com/Imaginea/matisse') Github Repository
-               a(href='https://github.com/Imaginea/matisse/issues') Bug Tracker
-        div(class='modal hide fade', id='whiteboardForm', style='display: none;')
-          div(class='modal-header')
-            h4 New whiteboard
-              a(class='close', data-dismiss='modal') x
-          div(class='modal-body')
-            form(name='whiteboard', id='whiteboard', class='form-horizontal', method='post', action='/boards/')
-              fieldset
-                div(class='control-group', id="whiteboardName")
-                  label(class='control-label', for='whiteboardName') Name*:
-                  div(class='controls')
-                    input(name='whiteboardName', id="name", type="text", placeholder="Name")
-                    div(id='nameError') Please enter a valid name!
-                div(class='control-group', id="containerlist", style='display:none')
-                  label(class='control-label', for='containerListInput') Container type:
-                  div(class='controls')
-                    select(name='container', id="containers")
-                      option(value="desktop-1024x768", id="desktop-1024x768") Desktop-1024x768
-                      option(value="desktop-1280x1024", id="desktop-1280x1024") Desktop-1280x1024
-                      option(value="iphone", id="iPhone") iPhone
-                      option(value="ipad", id="iPad") iPad
-                      option(value="blackberry", id="BlackBerry") BlackBerry
-                      option(value="browser", id="Browser") Browser
-                div(class='control-group', id="layoutList", style='display:none')
-                  label(class='control-label', for='layoutListInput') Template:
-                  div(class='controls')
-                    select(name='layout', id="layouts")
-                      optgroup(label="content")
-                        option(value="blank", id="blank") Blank
-                        option(value="column_header", id="column_header") Column_header
-                        option(value="column_header_footer", id="column_header_footer") Column_Header_Footer
-                        option(value="two_column_header", id="two_column_header") Two_Column_Header
-                        option(value="two_column_header_footer", id="two_column_header_footer") Two_Column_Header_Footer
-                        option(value="three_column_header", id="three_column_header") Three_Column_Header
-                        option(value="three_column_header_footer", id="three_column_header_footer") Three_Column_Header_Footer
-                div(class='control-group', id="canvaswidth", style='display:none')
-                  label(class='control-label', for='canvasWidth') Canvas Width:
-                  div(class='controls')
-                    input(name='canvasWidth', id="canvasWidth", type="text", value="1024")
-                div(class='control-group', id="canvasheight", style='display:none')
-                  label(class='control-label', for='canvasWidth') Canvas Height:
-                  div(class='controls')
-                    input(name='canvasHeight', id="canvasHeight", type="text", value="768")
-          div(class='modal-footer')
-            p(class="help-block pull-left") *Required
-            a(href='#', class='btn btn-primary', data-dismiss='modal', id='createWhiteboard') Create
-            a(href='#', class='btn', data-dismiss='modal') Cancel
 script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap-carousel.js')
 script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap-modal-dialog.js')
 script(type='text/javascript', src='/javascripts/matisse/showAll.js')

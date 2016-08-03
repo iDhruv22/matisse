@@ -1,240 +1,249 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Matisse</title>
-	<link rel="icon" href="/images/icon_16.png" type="image/png" sizes="16x16">
-	<link rel="icon" href="/images/icon_32.png" type="image/png" sizes="32x32">
-	<link rel="icon" href="/images/icon_64.png" type="image/png" sizes="64x64">
-	<link rel="icon" href="/images/icon_128.png" type="image/png" sizes="128x128">
 
-        <meta name="description" content="A shared whiteboard using HTML5 Canvas with server on socket.io and node.js"/>
-        <!-- Third Party CSS files -->
+<head>
+  <meta charset="utf-8" />
+  <title>Matisse</title>
+  <link rel="icon" href="/images/icon_16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icon_32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/images/icon_64.png" type="image/png" sizes="64x64">
+  <link rel="icon" href="/images/icon_128.png" type="image/png" sizes="128x128">
 
-        <link type="text/css" href="/stylesheets/thirdparty/newmat/jquery-ui-1.8.16.newmat.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="/stylesheets/thirdparty/farbtastic/farbtastic.css" type="text/css"/>
-        <!-- mCustomScrollbar CSS files -->
-        <link rel="stylesheet" href="/stylesheets/thirdparty/mscrollbar/jquery.mCustomScrollbar.css" type="text/css"/>
-        <!-- Bootstrap CSS files -->
-        <link type="text/css" href="/stylesheets/thirdparty/bootstrap/bootstrap.css" rel="stylesheet"/>
-        <!-- Development CSS files -->
-        <link rel="stylesheet" href="/stylesheets/style.css"/>
-        <link rel="stylesheet" href="/stylesheets/board.css"/>
-        <!-- Third party JS libraries -->
-    </head>
-    <body id="_body">
-        <!-- for indicating that the board is getting loaded -->
-        <div id="loading" style="display:none;">
-          <h4>Loading</h4>
-          <img src="/images/spinner.gif" class="spinner" alt="Loading...">
-        </div>
-        <!-- for popup to show when user click's save button-->
-        <div id="blanket" style="display:none;">
-            <div id='closediv' style="position:absolute;"><a href="#" onclick="popup('popUpDiv', 'closediv' )">
+  <meta name="description" content="A shared whiteboard using HTML5 Canvas with server on socket.io and node.js" />
+  <!-- Third Party CSS files -->
+
+  <link type="text/css" href="/stylesheets/thirdparty/newmat/jquery-ui-1.8.16.newmat.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/thirdparty/farbtastic/farbtastic.css" type="text/css" />
+  <!-- mCustomScrollbar CSS files -->
+  <link rel="stylesheet" href="/stylesheets/thirdparty/mscrollbar/jquery.mCustomScrollbar.css" type="text/css" />
+  <!-- Bootstrap CSS files -->
+  <link type="text/css" href="/stylesheets/thirdparty/bootstrap/bootstrap.css" rel="stylesheet" />
+  <!-- Development CSS files -->
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/board.css" />
+  <!-- Third party JS libraries -->
+</head>
+
+<body id="_body">
+  <!-- for indicating that the board is getting loaded -->
+  <div id="loading" style="display:none;">
+    <h4>Loading</h4>
+    <img src="/images/spinner.gif" class="spinner" alt="Loading...">
+  </div>
+  <!-- for popup to show when user click's save button-->
+  <div id="blanket" style="display:none;">
+    <div id='closediv' style="position:absolute;"><a href="#" onclick="popup('popUpDiv', 'closediv' )">
                 Close </a></div>
+  </div>
+  <div id="popUpDiv" style="display:none;overflow:auto; width: 250px; height: 300px;padding:5px">
+    <span id="result"></span>
+    <div id="device-container">
+      <button id="done">Done Clipping</button>
+    </div>
+  </div>
+  <div id="helpDiv" style="display:none;overflow:scroll"></div>
+  <!-- end for popup -->
+  <div id='blank'></div>
+
+  <!-- start of outer div -->
+  <div id="outer">
+    <div id="leftdiv">
+      <div class='new-logo-cntr'>
+        <a href="/">
+          <div class='new-logo'></div>
+        </a>
+      </div>
+      <div id="accordion"></div>
+    </div>
+    <div id="containerDiv" style="display:none">
+      <div id="containerBody" style="visibility:hidden;">
+        <div id="canvasId">
+          <canvas id="c" class="ui-corner-all"></canvas>
         </div>
-        <div id="popUpDiv" style="display:none;overflow:auto; width: 250px; height: 300px;padding:5px">
-            <span id="result"></span>
-            <div id="device-container">
-                <button id="done">Done Clipping</button> 
-            </div>
+      </div>
+    </div>
+    <div class="rightdiv">
+      <div class="top">
+        <div class="user-image" id="userProfilePic"></div>
+        <div id="boardName" class="board-name">Whiteboard Name</div>
+      </div>
+
+      <div class="bottom">
+
+        <div id='friendsicon' class="menu-holder m-popover">
+          <div class="m-icon m-friends"></div>
+          <div class="m-label">Friends...</div>
+          <div class="m-submenu-list all">
+            <span class="menu-arrow"></span>
+            <ul class="menu-list">
+              <li><em>Home alone!</em></li>
+            </ul>
+          </div>
+          <div class="m-submenu-list notify">
+            <span class="menu-arrow"></span>
+            <ul class="menu-list"></ul>
+          </div>
         </div>
-        <div id="helpDiv" style="display:none;overflow:scroll"></div>
-        <!-- end for popup -->
-        <div id='blank'></div>
 
-        <!-- start of outer div -->
-        <div id="outer">
-            <div id="leftdiv">
-		<div class='new-logo-cntr'><a href="/" ><div class='new-logo'></div></a></div>                
-		<div id="accordion"></div>
-            </div>
-            <div id="containerDiv" style="display:none">
-                <div id="containerBody" style="visibility:hidden;">
-                    <div id="canvasId" >
-                        <canvas id="c" class="ui-corner-all"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="rightdiv">
-		<div class="top">
-			<div class="user-image" id="userProfilePic"></div>
-			<div id="boardName" class="board-name">Whiteboard Name</div>
-		</div>
-
-		<div class="bottom">
-
-                  <div id='friendsicon' class="menu-holder m-popover">
-                    <div class="m-icon m-friends"></div>
-                    <div class="m-label">Friends...</div>
-                    <div class="m-submenu-list all">
-                      <span class="menu-arrow"></span>
-                      <ul class="menu-list">
-                        <li><em>Home alone!</em></li>
-                      </ul>
-                    </div>
-                    <div class="m-submenu-list notify">
-                      <span class="menu-arrow"></span>
-                      <ul class="menu-list"></ul>
-                    </div>
-                  </div>
-
-			<div class="menu-holder m-popover" data-action='showImage' id="showImageIcon">
-				<div class="m-icon m-save"></div>
-				<div class="m-label">Show Image</div>
-				<div class="m-submenu-list">
-        			<span class="menu-arrow"></span>
-        			<ul class="menu-list">
-        				<li title="Show Raw Image" id="Raw" >Raw</li>
-        				<li title="Clip to Conatiner" id="Clip" >Clip</li>
-        			</ul>
-       		   </div>
-			</div>
-			<div class="menu-holder m-popover" id="editicon" data-action='edit' data-content="Edit..." title="Edit">
-				<div class="m-icon m-edit"></div>
-				<div class="m-label">Edit ...</div>
-				<div class="m-submenu-list">
-        			<span class="menu-arrow"></span>
-        			<ul class="menu-list">
-        				<li title="Undo" id="Undo" class="disabled">Undo<span class="menu-shortcut">Ctrl+z</span></li>
-        				<li title="Redo" id="Redo" class="disabled">Redo<span class="menu-shortcut">Ctrl+y</span></li>
-        			</ul>
-       		   </div>
-			</div>
-			<div class="menu-holder m-popover" id="shareicon" data-action='share' data-content="Share..." title="Share">
-				<div class="m-icon m-share"></div>
-				<div class="m-label">Share ...</div>
-				<div class="m-submenu-list">
-        			<span class="menu-arrow"></span>
-        			<ul class="menu-share-list">
-        				<li title="share" class="disabled">
-                          <script type="text/javascript" src="http://cdn.socialtwist.com/2011051251712/script.js"></script>
-                          <a class="st-taf" href="http://tellafriend.socialtwist.com" onclick="return false;" style="border:0;padding:0;margin:0;">
-                            <img alt="Share the url" style="border:0;padding:0;margin:0;" src="http://images.socialtwist.com/2011051251712/button.png" onmouseout="STTAFFUNC.hideHoverMap(this)" onmouseover="STTAFFUNC.showHoverMap(this, '2011051251712', window.location, document.title)" onclick="STTAFFUNC.cw(this, {id:'2011051251712', link: window.location, title: document.title });"/>
-                          </a>
-                        </li>
-        			</ul>
-       		   </div>
-			</div>
-			<div id='discussicon' class="menu-holder" data-action='discuss' >
-				<div class="m-icon m-discuss"></div>
-				<div class="m-label">Discuss</div>
-                                <div class="m-submenu-list dummy"></div>
-                                <div class="m-submenu-list notify">
-                                  <span class="menu-arrow"></span>
-                                  <ul class="menu-list"></ul>
-                                </div>
-			</div>
-			<div class="menu-holder" data-action='report' id="reporticon">
-			  <div class="m-icon m-report"></div>
-			  <div class="m-label">Report ...</div>
-			  <div class="m-submenu-list">
-        		<span class="menu-arrow"></span>
-        		<ul class="menu-list">
-        		  <li title="LogIssue" id="LogIssue"><a href="http://github.com/Imaginea/matisse/issues" target="_blank" style="color:#666666">Log Issue</a></li>
-        		  <li title="ExportJson" id="ExportJson" >Export</li>
-        		</ul>
-       		  </div>
-			</div>
-			<div class="menu-holder" data-action='help'>
-				<a href="http://imaginea.github.com/matisse/latest/help.html" target="_blank">
-					<div class="m-icon m-help"></div>
-					<div class="m-label">Help</div>
-				</a>
-			</div>
-
-		</div>
-	    </div>
+        <div class="menu-holder m-popover" data-action='showImage' id="showImageIcon">
+          <div class="m-icon m-save"></div>
+          <div class="m-label">Show Image</div>
+          <div class="m-submenu-list">
+            <span class="menu-arrow"></span>
+            <ul class="menu-list">
+              <li title="Show Raw Image" id="Raw">Raw</li>
+              <li title="Clip to Conatiner" id="Clip">Clip</li>
+            </ul>
+          </div>
         </div>
-        <div id="right" class="ui-widget-content">
-            <div id="texteditdiv" title="Text Editor">
-                <textarea id="textarea" rows="2"></textarea>
-            </div>
-            <div id="chatdialog" title="Chat">
-                <ul id="chattext"></ul>
-                <input type="text" id="chat" placeholder="Enter message..."/><br/>
-                <button id="chatbutton">Send</button>
-            </div>
-            <div id="propdiv" title="Properties"></div>
+        <div class="menu-holder m-popover" id="editicon" data-action='edit' data-content="Edit..." title="Edit">
+          <div class="m-icon m-edit"></div>
+          <div class="m-label">Edit ...</div>
+          <div class="m-submenu-list">
+            <span class="menu-arrow"></span>
+            <ul class="menu-list">
+              <li title="Undo" id="Undo" class="disabled">Undo<span class="menu-shortcut">Ctrl+z</span></li>
+              <li title="Redo" id="Redo" class="disabled">Redo<span class="menu-shortcut">Ctrl+y</span></li>
+            </ul>
+          </div>
         </div>
-	<div class="userInfoSec" style="display:none;">
-		<div class="u-uparrow"></div>
-		<div>
-			<div id="userProfilePicBig" class='userpic-big-sec'></div>
-			<div class='user-info-data'>
-				<div id='userName'>User Name</div>
-				<div><span>via</span> <span id="userLoginService">Matisse</span></div>
-			</div>
-		</div>
-		<div class="b-uinfo-links"><a href="/"><span class='b-backarrow'>&lt;&lt;</span>Back to Home</a> <div class='rightFloater'><a href="/logout">Signout</a></div></div>		
-	</div>
-   
-    <div class="m-quick-edit"> 
-    	<span class="prop_icon" title="properties"></span>
-    	<span class="copy_icon" title="copy"></span>
-    	<span class="del_icon" title="delete"></span>
-    </div>
-    <div class="m-quick-edit-group"> 
-    	<div class="m-align-list">
-       		<ul class="menu-list">
-       			<span class="menu-arrow-top"></span>
-       			<li title="Align Left" id="alignLeft">Align Left</li>
- 				<li title="Align Right" id="alignRight">Align Right</li>
- 				<li title="Align Center" id="alignCenter">Align Center</li>
- 				<li title="Align Top" id="alignTop">Align Top</li>
- 				<li title="Align Bottom" id="alignBottom">Align Bottom</li>
- 				<li title="Distribute Vertically" id="distributeVertically">Distribute Vertically</li>
- 				<li title="Distribute Horizontally" id="distributeHorizontally">Distribute Horizontally</li>
- 				<li title="Make Same Width" id="makeSameWidth">Make Same Width</li>
- 				<li title="Make Same Height" id="makeSameHeight">Make Same Height</li>
-         	</ul>
-       </div>
-     	<span class="prop_icon" title="align"></span>
-       	<span class="copy_icon" title="copy"></span>
-   	<span class="del_icon" title="delete"></span>
-    </div>
-    <div class="alert alert-info copy-alert inactive-alert">  
-  		<a class="close" data-dismiss="alert">×</a>  
-  		<strong>Item Copied!</strong>Now, click anywhere in the whiteboard to paste the item.
-	</div>
-    <div class="alert alert-error inactive-alert">
-      <a class="close" data-dismiss="alert">×</a>
-      <strong>Board Cannot be Found.</strong> You will now be redirected to the dashboard page!
-    </div>
-    <div class="alert alert-info clip-alert inactive-alert">  
-      <a class="close" data-dismiss="alert">×</a>  
-      <strong>Click and drag the conatiner to clip content!</strong>
-    </div>
-    <div class="alert alert-info shift-click-alert inactive-alert">  
-      <strong>Matisse does not support shift selection use rectangle select</strong>
-    </div>
-                
-      <!-- Start Including Script Files-->
-      <script src="/socket.io/socket.io.js"></script>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-      <script data-main="/javascripts/matisse/matisse.setup" src="/javascripts/thirdparty/require/require-jquery.js"
-              type="text/javascript"></script>
+        <div class="menu-holder m-popover" id="shareicon" data-action='share' data-content="Share..." title="Share">
+          <div class="m-icon m-share"></div>
+          <div class="m-label">Share ...</div>
+          <div class="m-submenu-list">
+            <span class="menu-arrow"></span>
+            <ul class="menu-share-list">
+              <li title="share" class="disabled">
+                <script type="text/javascript" src="http://cdn.socialtwist.com/2011051251712/script.js"></script>
+                <a class="st-taf" href="http://tellafriend.socialtwist.com" onclick="return false;" style="border:0;padding:0;margin:0;">
+                  <img alt="Share the url" style="border:0;padding:0;margin:0;" src="http://images.socialtwist.com/2011051251712/button.png" onmouseout="STTAFFUNC.hideHoverMap(this)" onmouseover="STTAFFUNC.showHoverMap(this, '2011051251712', window.location, document.title)"
+                    onclick="STTAFFUNC.cw(this, {id:'2011051251712', link: window.location, title: document.title });" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id='discussicon' class="menu-holder" data-action='discuss'>
+          <div class="m-icon m-discuss"></div>
+          <div class="m-label">Discuss</div>
+          <div class="m-submenu-list dummy"></div>
+          <div class="m-submenu-list notify">
+            <span class="menu-arrow"></span>
+            <ul class="menu-list"></ul>
+          </div>
+        </div>
+        <div class="menu-holder" data-action='report' id="reporticon">
+          <div class="m-icon m-report"></div>
+          <div class="m-label">Report ...</div>
+          <div class="m-submenu-list">
+            <span class="menu-arrow"></span>
+            <ul class="menu-list">
+              <li title="LogIssue" id="LogIssue"><a href="http://github.com/Imaginea/matisse/issues" target="_blank" style="color:#666666">Log Issue</a></li>
+              <li title="ExportJson" id="ExportJson">Export</li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-holder" data-action='help'>
+          <a href="http://imaginea.github.com/matisse/latest/help.html" target="_blank">
+            <div class="m-icon m-help"></div>
+            <div class="m-label">Help</div>
+          </a>
+        </div>
 
-      <script src="/javascripts/thirdparty/fabric/fabric_all.js"></script>
-      <script src="/javascripts/thirdparty/fabric/Delicious_500.font.js"></script>
-      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
-      <!-- Bootstrap picker -->
-      <script type="text/javascript" src="/javascripts/thirdparty/bootstrap/bootstrap.min.js"></script>
-      <!-- Color picker -->
-      <script src="/javascripts/thirdparty/fabric/farbtastic.js" type="text/javascript"></script>
-      <!-- mCustomScrollbar JS files -->
-      <script src="/javascripts/thirdparty/jquery/jquery.mousewheel.min.js" type="text/javascript"></script>
-      <script src="/javascripts/thirdparty/mscrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
-      <script>
-          $(document).ready(function() {
-                $('#containerDiv').show();
-        	    $('#containerDiv').height($(window).height());
-        	    $('#loading').css('top',$(window).height()/2);
-        	    $('#loading').show();
-          });
-      </script>
-      <!-- End Including Script Files-->
-      
-    <canvas id="clip" style="display:none;"></canvas>
-    </body>
+      </div>
+    </div>
+  </div>
+  <div id="right" class="ui-widget-content">
+    <div id="texteditdiv" title="Text Editor">
+      <textarea id="textarea" rows="2"></textarea>
+    </div>
+    <div id="chatdialog" title="Chat">
+      <ul id="chattext"></ul>
+      <input type="text" id="chat" placeholder="Enter message..." /><br/>
+      <button id="chatbutton">Send</button>
+    </div>
+    <div id="propdiv" title="Properties"></div>
+  </div>
+  <div class="userInfoSec" style="display:none;">
+    <div class="u-uparrow"></div>
+    <div>
+      <div id="userProfilePicBig" class='userpic-big-sec'></div>
+      <div class='user-info-data'>
+        <div id='userName'>User Name</div>
+        <div><span>via</span> <span id="userLoginService">Matisse</span></div>
+      </div>
+    </div>
+    <div class="b-uinfo-links"><a href="/"><span class='b-backarrow'>&lt;&lt;</span>Back to Home</a>
+      <div class='rightFloater'><a href="/logout">Signout</a></div>
+    </div>
+  </div>
+
+  <div class="m-quick-edit">
+    <span class="prop_icon" title="properties"></span>
+    <span class="copy_icon" title="copy"></span>
+    <span class="del_icon" title="delete"></span>
+  </div>
+  <div class="m-quick-edit-group">
+    <div class="m-align-list">
+      <ul class="menu-list">
+        <span class="menu-arrow-top"></span>
+        <li title="Align Left" id="alignLeft">Align Left</li>
+        <li title="Align Right" id="alignRight">Align Right</li>
+        <li title="Align Center" id="alignCenter">Align Center</li>
+        <li title="Align Top" id="alignTop">Align Top</li>
+        <li title="Align Bottom" id="alignBottom">Align Bottom</li>
+        <li title="Distribute Vertically" id="distributeVertically">Distribute Vertically</li>
+        <li title="Distribute Horizontally" id="distributeHorizontally">Distribute Horizontally</li>
+        <li title="Make Same Width" id="makeSameWidth">Make Same Width</li>
+        <li title="Make Same Height" id="makeSameHeight">Make Same Height</li>
+      </ul>
+    </div>
+    <span class="prop_icon" title="align"></span>
+    <span class="copy_icon" title="copy"></span>
+    <span class="del_icon" title="delete"></span>
+  </div>
+  <div class="alert alert-info copy-alert inactive-alert">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>Item Copied!</strong>Now, click anywhere in the whiteboard to paste the item.
+  </div>
+  <div class="alert alert-error inactive-alert">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>Board Cannot be Found.</strong> You will now be redirected to the dashboard page!
+  </div>
+  <div class="alert alert-info clip-alert inactive-alert">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>Click and drag the conatiner to clip content!</strong>
+  </div>
+  <div class="alert alert-info shift-click-alert inactive-alert">
+    <strong>Matisse does not support shift selection use rectangle select</strong>
+  </div>
+
+  <!-- Start Including Script Files-->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script data-main="/javascripts/matisse/matisse.setup" src="/javascripts/thirdparty/require/require-jquery.js" type="text/javascript"></script>
+
+  <script src="/javascripts/thirdparty/fabric/fabric_all.js"></script>
+  <script src="/javascripts/thirdparty/fabric/Delicious_500.font.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
+  <!-- Bootstrap picker -->
+  <script type="text/javascript" src="/javascripts/thirdparty/bootstrap/bootstrap.min.js"></script>
+  <!-- Color picker -->
+  <script src="/javascripts/thirdparty/fabric/farbtastic.js" type="text/javascript"></script>
+  <!-- mCustomScrollbar JS files -->
+  <script src="/javascripts/thirdparty/jquery/jquery.mousewheel.min.js" type="text/javascript"></script>
+  <script src="/javascripts/thirdparty/mscrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+  <script>
+    $(document).ready(function() {
+      $('#containerDiv').show();
+      $('#containerDiv').height($(window).height());
+      $('#loading').css('top', $(window).height() / 2);
+      $('#loading').show();
+    });
+  </script>
+  <!-- End Including Script Files-->
+
+  <canvas id="clip" style="display:none;"></canvas>
+</body>
+
 </html>

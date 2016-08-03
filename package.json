@@ -1,19 +1,32 @@
 {
-    "name": "matisse"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.0"
-    , "jade": ">= 0.0.1"
-    , "socket.io":"0.8.7"
-    , "socket.io-client":"0.8.7"
-    , "redis":"0.7.1"
-    , "hiredis":"0.1.13"
-    , "nohm":"0.7.1"
-    , "uglify-js":"1.1.1"
-    , "lingo":"0.0.4"
-    , "async":"0.1.15"
-    , "express-resource":"0.2.3"
-    , "gzippo": "0.1.4"
+  "name": "matisse",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "0.1.15",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "connect-timeout": "^1.7.0",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.1",
+    "csurf": "^1.9.0",
+    "errorhandler": "^1.4.3",
+    "everyauth": "^0.4.9",
+    "express": "^4.14.0",
+    "express-resource": "^1.0.0",
+    "express-session": "^1.14.0",
+    "hiredis": "^0.5.0",
+    "jade": "^1.11.0",
+    "lingo": "0.0.4",
+    "method-override": "^2.3.6",
+    "morgan": "^1.7.0",
+    "nohm": "0.7.1",
+    "redis": "^2.6.2",
+    "serve-favicon": "^2.3.0",
+    "serve-index": "^1.8.0",
+    "serve-static": "^1.11.1",
+    "socket.io": "^0.8.7",
+    "socket.io-client": "0.8.7",
+    "uglify-js": "1.1.1"
   }
 }

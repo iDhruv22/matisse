@@ -11,7 +11,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 	/**
 	 * To load components objects. group the objects using pathgroup
 	 */
-	var loadComponent = function (args, objects) {		
+	var loadComponent = function (args, objects) {
 		var pathGroup = new fabric.PathGroup(objects, {width: args.width, height: args.height});
 		pathGroup.set({
 			left: args.left,
@@ -105,7 +105,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 					count++;
 				}
 			}
-			textItems = textItems.substring(0, textItems.length - 1) + "\n";		
+			textItems = textItems.substring(0, textItems.length - 1) + "\n";
 			var k = 0;
 			// each cell's text is appended with '\|' character
 			for (var j = 2 + (count * 2); j < obj.paths.length; j++) {
@@ -118,7 +118,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 					textItems += obj.paths[j].text;
 					k++;
 					textItems = k >= 1 ? textItems + "|": textItems;
-				}				
+				}
 			}
 			textItems = textItems.substring(0, textItems.length - 1) + "\n";
 		}
@@ -139,7 +139,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 		var tableHeader = tableRows[0],
 			colHeader = tableHeader.split("|"),
 			j = 0;
-		
+
 		// create table header
 		for (var i = 0; i < colHeader.length; i++) {
 			if (colHeader[i] != '') {
@@ -150,9 +150,9 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 					left: -obj.paths[0].width/2 + (obj.paths[0].width/(4 * colHeader.length)) + j++ *(obj.paths[0].width/colHeader.length) + 10,
 					top : -obj.paths[0].height/2 + 10,
 					stroke: '#000000'
-				});			
+				});
 				var col = new fabric.Polyline([{x: -obj.paths[0].width/2 + (j *(obj.width / colHeader.length)), y: -obj.height/2}, {x: -obj.paths[0].width/2 + (j *(obj.width / colHeader.length)) + 0.005, y: obj.height/2}],
-							{fill:'#ffffff',stroke:'#aaa'});				
+							{fill:'#ffffff',stroke:'#aaa'});
 				objects.push(txtObj);
 				objects.push(col);
 			}
@@ -164,7 +164,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 				var txt = "";
 				for (var j=0; j < colHeader.length; j++) {
 					txt = rowElements[j];
-					
+
 					if (!txt) {
 						txt= " ";
 					}
@@ -176,11 +176,11 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 						top : -obj.paths[0].height/2 + (20 * i) + 10,
 						stroke: '#000000'
 					});
-					objects.push(txtObj);					
+					objects.push(txtObj);
 				}
 			}
 		}
-		
+
 		// create a pathgroup for all the above created objects and then add it to the canvas having uid same as that of the original list object.
 		var pathGroup = new fabric.PathGroup(objects, {width: objects[0].width, height: objects[0].height});
 		pathGroup.set({
@@ -199,14 +199,14 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 		canvas.renderAll();
 		return pathGroup;
 	}
-	
+
 	/** Function to provide text area for adding table items and on blur of text area to send the list of table items to get added to the table container.
 	 * @param obj: table object on canvas for which the items are to be added.
 	 */
 	var tableHandler = function (obj) {
-		$("#proptable").append("<tr id = 'txtrow'><td id= 'txttd' valign='top'><label style = 'text-align:right; vertical-align:top' id='labl' for='txtarea'>text:</label></td><td><textarea id='txtarea' cols= '10' style='height:75px'></textarea> </td></tr>");		
+		$("#proptable").append("<tr id = 'txtrow'><td id= 'txttd' valign='top'><label style = 'text-align:right; vertical-align:top' id='labl' for='txtarea'>text:</label></td><td><textarea id='txtarea' cols= '10' style='height:75px'></textarea> </td></tr>");
 		var txtbox = document.getElementById('txtarea'),
-			count = 0;			
+			count = 0;
 
 		// obtain the text from the table, if any.
 		var txt = getTableText(obj);
@@ -221,12 +221,12 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 						uid: pathGroup.uid,
 						object: pathGroup
 					}]
-				});	
+				});
 				matisse.isUpdatingProperties = true;
 				canvas.setActiveObject(pathGroup);
 				matisse.isUpdatingProperties = false;
 			}
-		};		
+		};
 	};
 
     function ComponentProperty(name, type, defaultValue, action) {
@@ -255,7 +255,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
         this.actions = {};
         this.actionKeys = ["toolAction", "modifyAction", "applyProperties", "resizeAction"];
     }
-   
+
     (function() {
         var addFlattenedMap = function (exportMap, actionMap, keys) {
             var keyName = "", i = 0;
@@ -300,7 +300,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
             this.addProperty("scaleY", 1);
         };
     }).call(Component.prototype)
-    
+
 
     var divComponent = new Component("div");
     divComponent.addDimensionAndScale();
@@ -352,7 +352,7 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
     var divMap = divComponent.export();
     divMap.activeIcon = "rectangle_w.png";
     divMap.inactiveIcon = "rectangle_g.png";
-    
+
 
     var tableComponent = new Component("table");
     tableComponent.addProperties(["left", "top"]);
@@ -464,11 +464,11 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 
     var imageComponent = new Component('image');
     imageComponent.addDimensionAndScale();
-    imageComponent.addStringProperty('source','http://www.thematisse.org/images/mattise_whitebg.png');
+    imageComponent.addStringProperty('source','/images/mattise_whitebg.png');
 
     imageComponent.addActions({
 				toolAction: function (args){
-					args.src = args.src ? args.src : 'http://www.thematisse.org/images/mattise_whitebg.png';
+					args.src = args.src ? args.src : '/images/mattise_whitebg.png';
 					var img = fabric.Image.fromURL(args.src, function(img) {
 					    img.set({
 					      left: args.left,
@@ -650,6 +650,6 @@ define(["matisse", "matisse.palettes", "matisse.util", "matisse.palettes.propert
 			image: imageComponent.export(),
 			slider: sliderComponent.export(),
 			progressbar: progressbarMap
-		} 
+		}
 	});
 });

@@ -8,20 +8,20 @@ module.exports = {
 
         var activeBoards = [];
 
-        function findBoard(name) { 
-            for(var i = 0; i < activeBoards.length; i++) { 
+        function findBoard(name) {
+            for(var i = 0; i < activeBoards.length; i++) {
                 if(activeBoards[i].name == name) {
-                    return activeBoards[i]; 
+                    return activeBoards[i];
                 }
             }
             var board = {name: name, users: []};
             activeBoards.push(board);
             return board;
         }
-        
+
         function addUser(board, user) {
             if(board.users.indexOf(user) < 0) {
-                board.users.push(user);                
+                board.users.push(user);
             }
         }
 
@@ -33,30 +33,28 @@ module.exports = {
         }
 
         function onHello(name) {
-            this.get('board', function(err, board) {
-                         addUser(findBoard(board), name);
-                         boardcastActiveBoards();
-                     });
-        }
-        
-        function onBye() {
-            var s = this;
-            s.get('name', function(err, u) {
-                      s.get('board', function(err, b) {
-                                removeUser(findBoard(b), u);
-                                boardcastActiveBoards();
-                            });
-                  });
+            var boardNew = this.board;
+            addUser(findBoard(boardNew), name);
+            boardcastActiveBoards();
+
         }
 
-        io.sockets.on('connection', 
+        function onBye() {
+            var s = this;
+            var u = this.name;
+            var b = this.board;
+            removeUser(findBoard(b), u);
+            boardcastActiveBoards();
+        }
+
+        io.sockets.on('connection',
                       function (sock) {
                           sock.on('hello', onHello);
                           sock.on('disconnect', onBye);
                       });
 
         var godio = io.of('/god')
-            .on('connection', 
+            .on('connection',
                 function (sock) {
                     sock.emit('active-boards', activeBoards);
                 });
@@ -95,7 +93,7 @@ function letGodsBeInvisible (isGod) {
                  var sock = this;
                  isGod(name, function(yes) {
                            if(!yes) {
-                              originalHello.call(sock, name); 
+                              originalHello.call(sock, name);
                            }
                        });
              };
@@ -108,7 +106,7 @@ function letGodsBeInvisible (isGod) {
 function onlyGodsCanViewStats(app, isGod) {
     var User = require('../models/UserModel');
 
-    app.get('/internal/stats.html', 
+    app.get('/internal/stats.html',
             function (req, res, next) {
                 var auth = req.session.auth;
                 if(!auth) {

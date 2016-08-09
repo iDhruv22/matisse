@@ -52,7 +52,7 @@ application = (function() {
 
   var app = express();
   var server = http.createServer(app);
-  var io = require('socket.io').listen(server);
+  var io = require('socket.io')(server);
 
   // var configure = function() {
   app.set('views', __dirname + '/views');
@@ -201,10 +201,6 @@ application = (function() {
     console.log("Matisse server listening on port %d in %s mode", listener.address().port, app.settings.env);
   });
 
-  io.configure('production', function() {
-    io.set('transports', ['xhr-polling']);
-  });
-  io.set('log level', 2);
 
   UserModel.find(function(err, userIds) {
     if (err) {

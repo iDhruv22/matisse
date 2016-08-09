@@ -1,13 +1,13 @@
 collaboration = module.exports = {
 	boardModel: require(__dirname + '/../models/BoardModel.js'),
 	shapesModel: require(__dirname + '/../models/ShapesModel.js'),
-	events: {		
-		setUrl: function (location, data) {	
+	events: {
+		setUrl: function (location, data) {
 			var socket = this;
 			var wb_url = location.replace("/", "");
 			var randomnString = wb_url.substr(wb_url.indexOf('/') + 1);
 			socket.join(wb_url);
-                        socket.set('board', wb_url);
+                        socket.board = wb_url;
                         socket.emit('joined');
 
 			writeBoardModels(randomnString, socket);
@@ -19,7 +19,7 @@ collaboration = module.exports = {
 			console.log("wb_url: "+wb_url);
 			var randomnString = wb_url.substr(wb_url.indexOf('/') + 1);
 			console.log("randomnString: "+randomnString);
-			findInBoardModelforSetContainer(randomnString, wb_url, data);				
+			findInBoardModelforSetContainer(randomnString, wb_url, data);
 		},
 		eventDraw: function (location, data) {
 			var socket = this;
@@ -28,18 +28,15 @@ collaboration = module.exports = {
 		},
                 hello: function (name) { // user joins say hello to all
                     var s = this;
-                    s.set('name', name);
-                    s.get('board', function(err, board) {
-		              s.broadcast.to(board).emit('hello',name);
-                          });
+                    s.name= name;
+                    var boardData = s.board;
+										s.broadcast.to(boardData).emit('hello',name);
                 },
                 bye: function () { // user left say bye to all
                     var s = this;
-                    s.get('name', function(err, name) {
-                              s.get('board', function(err, board) {
-                                        s.broadcast.to(board).emit('bye',name);
-                                    });
-                          });
+										var name = s.name;
+										var boardData = s.board;
+                    s.broadcast.to(boardData).emit('bye',name);
                 }
 	},
 	collaborate: function (io) {
@@ -70,7 +67,7 @@ var writeBoardModels = function(randomStr, socket) {
 				board.load(id, function (err, props) {
 					if (err) {
 						return next(err);
-					} else {                         
+					} else {
 						//console.log(":::" + props.container);
 						if (props.container == undefined || props.container == "") {
 							socket.emit('containerDraw', "empty");
@@ -131,7 +128,7 @@ var findInBoardModelforSetContainer = function (randomnString, wb_url, data) {
 							if(err)
 							{
 								console.log("***** Error in updating container for URL:"+wb_url+" Err:"+err);
-							}	
+							}
 						});
 					}
 				});

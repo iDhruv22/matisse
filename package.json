@@ -25,8 +25,8 @@
     "serve-favicon": "^2.3.0",
     "serve-index": "^1.8.0",
     "serve-static": "^1.11.1",
-    "socket.io": "^0.8.7",
-    "socket.io-client": "0.8.7",
+    "socket.io": "^1.4.8",
+    "socket.io-client": "^1.4.8",
     "uglify-js": "1.1.1"
   }
 }

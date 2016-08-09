@@ -37,7 +37,7 @@ application = (function() {
     var fs = require('fs');
     var LogToFile = require("./server/logToFile");
 
-    redisClient.select(4);
+    // redisClient.select(4);
     Nohm.setPrefix('matisse'); //setting up app prefix for redis
     Nohm.setClient(redisClient);
 

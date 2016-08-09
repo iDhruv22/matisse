@@ -2,6 +2,6 @@ authconf.js
 .idea/
 .idea/*
 matisse.iml
-/node_modules
+node_modules/
 *~
 /*.log

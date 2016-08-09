@@ -18,8 +18,8 @@ var renderDashboard = function(res, ownedBoards, sharedBoards) {
     actualValues = {};
 
   actualValues['title'] = defaults.title;
-  actualValues['ownedBoards'] = (ownedBoards) ? ownedBoards : defaults.ownedBoards;
-  actualValues['sharedBoards'] = (sharedBoards) ? sharedBoards : defaults.sharedBoards;
+  actualValues['ownedBoards'] = ownedBoards || defaults.ownedBoards;
+  actualValues['sharedBoards'] = sharedBoards || defaults.sharedBoards;
   actualValues['createdNum'] = actualValues['ownedBoards'].length;
   actualValues['sharedNum'] = actualValues['sharedBoards'].length;
 

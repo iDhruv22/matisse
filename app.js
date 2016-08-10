@@ -5,13 +5,27 @@ var noop = function() {}
 application = (function() {
 
   var redis = require("redis");
-  var redisClient = redis.createClient(); //go thru redis readme for anyother config other than default: localhost 6379
+  var redisClient = redis.createClient(7000); //go thru redis readme for anyother config other than default: localhost 6379
+  var RedisClustr = require('redis-clustr');
 
-  redisClient.on("error", function(err) {
+  var redis = new RedisClustr({
+    servers: [{
+      host: '127.0.0.1',
+      port: 7000
+    }, {
+      host: '127.0.0.1',
+      port: 7001
+    }, {
+      host: '127.0.0.1',
+      port: 7002
+    }]
+  });
+
+  redis.on("error", function(err) {
     console.log("Error %s", err);
   });
 
-  redisClient.on("connect", function(err) {
+  redis.on("connect", function() {
     var express = require('express');
     var Resource = require('express-resource');
     var routes = require('./routes');
@@ -37,9 +51,9 @@ application = (function() {
     var fs = require('fs');
     var LogToFile = require("./server/logToFile");
 
-    // redisClient.select(4);
+    //redisClient.select(4);
     Nohm.setPrefix('matisse'); //setting up app prefix for redis
-    Nohm.setClient(redisClient);
+    Nohm.setClient(redis);
 
     login.authenticate();
 
@@ -56,6 +70,7 @@ application = (function() {
     var server = http.createServer(app);
     var io = require('socket.io')(server);
 
+    // var configure = function() {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(cookieParser());
@@ -70,7 +85,10 @@ application = (function() {
     app.use(bodyParser.json());
     app.use(everyauth.middleware());
     app.use(methodOverride());
+    // app.use(app.router);
     app.use(express.static(__dirname + '/public'));
+    //everyauth.helpExpress(app);
+    // };
 
     var setEnvironmentSettings = function(env) {
       var expressErrorHandlerOptions = {};
@@ -91,20 +109,25 @@ application = (function() {
     };
 
     var use = function(err, req, res, next) {
-      if (err instanceof Error) {
-        err = err.message;
+        if (err instanceof Error) {
+          err = err.message;
+        }
+        res.json({
+          result: 'error',
+          data: err
+        });
       }
-      res.json({
-        result: 'error',
-        data: err
-      });
-    }
+      // Configuration
+      // app.set(configure);
 
     if ('production' == app.get('env')) {
       setEnvironmentSettings('production');
     } else {
       setEnvironmentSettings('development');
     }
+
+    //   app.configure('development', function() { setEnvironmentSettings('development') });
+    //   app.configure('production', function() { setEnvironmentSettings('production') });
 
     // Routes
     app.get('/', routes.index);

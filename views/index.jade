@@ -102,7 +102,8 @@ html
                       .profileDetails
                         .pull-left
                           a #{everyauth.twitter.user.name}
-                          a#logoutLink.logoutLink(href="/logout") (Logout)
+                          a#logoutLink.logoutLink(href="/logout") 
+                            |(Logout)
                         .pull-right
                           h6 via
                           a.loginSource.pull-right Twitter
@@ -113,7 +114,8 @@ html
                       .profileDetails
                         .pull-left
                           a #{everyauth.facebook.user.name}
-                          a#logoutLink.logoutLink(href="/logout") (Logout)
+                          a#logoutLink.logoutLink(href="/logout") 
+                            |(Logout)
                         .pull-right
                           h6 via
                           a.loginSource.pull-right Facebook
@@ -124,7 +126,8 @@ html
                       .profileDetails
                         .pull-left
                           a #{everyauth.google.user.name}
-                          a#logoutLink.logoutLink(href="/logout") (Logout)
+                          a#logoutLink.logoutLink(href="/logout") 
+                            |(Logout)
                         .pull-right
                           h6 via
                           a.loginSource.pull-right Google
@@ -142,7 +145,8 @@ html
                   img.loginIcon(src='images/login icons/google-new.png')
               hr
               h3.watch-demo
-                a(href='http://youtu.be/F4hA1A1PVxw') Watch Demo (3m 50s)
+                a(href='http://youtu.be/F4hA1A1PVxw') 
+                  |Watch Demo (3m 50s)
               #demovid
                 iframe(width='300'
                        height='169' 
@@ -222,7 +226,8 @@ html
                             p.thumbnailCaption.editable(id='board-name-#{board.id}') #{board.name}
                 .row
                   #showAllCreateWhiteBoard.span2.offset6
-                    a#showOwned.pull-left(href='#') Show all
+                    a#showOwned.pull-left(href='#') 
+                      |Show all
                 .row
                   hr.dashes
                 .row
@@ -242,7 +247,8 @@ html
                             p.thumbnailCaption #{board.createdBy}
                 .row
                   #showAllCreateWhiteBoard.span2.offset6
-                    a#showShared.pull-left(href='#') Show all
+                    a#showShared.pull-left(href='#') 
+                      |Show all
 
 
       #loginFooterDivider.row
@@ -266,9 +272,12 @@ html
           #footer
            .footerInner
              .footerMenu
-               a(href='https://github.com/Imaginea/matisse/wiki') Matisse Wiki
-               a(href='https://github.com/Imaginea/matisse') Github Repository
-               a(href='https://github.com/Imaginea/matisse/issues') Bug Tracker
+               a(href='https://github.com/Imaginea/matisse/wiki') 
+                 |Matisse Wiki
+               a(href='https://github.com/Imaginea/matisse') 
+                 |Github Repository
+               a(href='https://github.com/Imaginea/matisse/issues') 
+                 |Bug Tracker
         #whiteboardForm.modal.hide.fade
           .modal-header
             h4 New whiteboard
@@ -322,7 +331,8 @@ html
           .modal-footer
             p.help-block.pull-left *Required
             a#createWhiteboard.btn.btn-primary(href='#' 
-                                               data-dismiss='modal') Create
+                                               data-dismiss='modal') 
+                                               |Create
             a.btn(href='#'
                   data-dismiss='modal') Cancel
   script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap-carousel.js')

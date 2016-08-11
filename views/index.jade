@@ -34,18 +34,18 @@ html
       $(document).ready(function() {setTimeout(resizeOrReadyHandler, 100);});
   body!= body
     .container
-      .row#loginHeader
+      #loginHeader.row
 
         .span4.leftHeader
           #loginLogo
             img(src='images/mattise_whitebg.png')
 
         .span8.rightHeader
-          .text#testimonial
+          #testimonial.text
              if everyauth.loggedIn
-                .row#rightheaderContent
+                #rightheaderContent.row
                   .span4
-                    .btn-toolbar#rightHeaderButton
+                    #rightHeaderButton.btn-toolbar
                       .btn-group.pr10
                         .numButton
                           h3 #{createdNum}
@@ -57,96 +57,113 @@ html
                   .span3
                     .row
                       .span3
-                        .btn-group.pull-right#launchButton
-                          button(class='btn btn-action', data-toggle='modal', data-target="#whiteboardForm")
+                        #launchButton.btn-group.pull-right
+                          button.btn.btn-action(data-toggle='modal' 
+                                                data-target="#whiteboardForm")
                             h3 New Whiteboard &raquo;
               else
                 .span1
-                  img(src='images/blockquotes_start.png', alt='"', align='top', width='20', height='20', class='pull-left')
+                  img.pull-left(src='images/blockquotes_start.png'
+                                alt='"'
+                                align='top' 
+                                width='20' 
+                                height='20')
                 .span7
-                  p Balance between wait-times of emails and misunderstandings of a phone call, Matisse grounds the discussion and reveals interpretation gaps. A whiteboarding application with real-time canvas sharing and chat. Collaborate and sketch simultaneously, build wireframes, draw html elements or share screenshots.
+                  p
+                    |Balance between wait-times of emails and misunderstandings of a phone call,
+                    |Matisse grounds the discussion and reveals interpretation gaps. A whiteboarding
+                    |application with real-time canvas sharing and chat. Collaborate and sketch simultaneously,
+                    |build wireframes, draw html elements or share screenshots.
                 #rightQuote
-                  img(src='images/blockquotes_end.png', alt='"', align='top', class='pull-right', width='20', height='20')
+                  img.pull-right(src='images/blockquotes_end.png' 
+                                 alt='"' 
+                                 align='top' 
+                                 width='20' 
+                                 height='20')
 
-      .row#loginHeaderDivider
+      #loginHeaderDivider.row
 
-        .span4#loginHeaderDividerLeft
+        #loginHeaderDividerLeft.span4
 
-        .span8#loginHeaderDividerRight
+        #loginHeaderDividerRight.span8
 
-      .row.content#loginContent
+      #loginContent.row.content
 
-        .span4#loginLeftContent
+        #loginLeftContent.span4
             if everyauth.loggedIn
               .row
                 .span4
                   h3 Welcome,
-              .row#userInfo
+              #userInfo.row
                   if everyauth.twitter
                     .span1
-                      img(class="profilePic",src="#{everyauth.twitter.user.profile_image_url}")
+                      img.profilePic(src="#{everyauth.twitter.user.profile_image_url}")
                     .span3
                       .profileDetails
                         .pull-left
                           a #{everyauth.twitter.user.name}
-                          a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
+                          a#logoutLink.logoutLink(href="/logout") (Logout)
                         .pull-right
                           h6 via
-                          a(class='loginSource pull-right') Twitter
+                          a.loginSource.pull-right Twitter
                   else if everyauth.facebook
                     .span1
-                      img(class="profilePic",src="images/default.jpg")
+                      img.profilePic(src="images/default.jpg")
                     .span3
                       .profileDetails
                         .pull-left
                           a #{everyauth.facebook.user.name}
-                          a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
+                          a#logoutLink.logoutLink(href="/logout") (Logout)
                         .pull-right
                           h6 via
-                          a(class='loginSource pull-right') Facebook
+                          a.loginSource.pull-right Facebook
                   else if everyauth.google
                     .span1
-                      img(class="profilePic",src="#{everyauth.google.user.picture ? everyauth.google.user.picture : 'images/default.jpg'}")
+                      img.profilePic(src="#{everyauth.google.user.picture || 'images/default.jpg'}")
                     .span3
                       .profileDetails
                         .pull-left
                           a #{everyauth.google.user.name}
-                          a(href="/logout", id="logoutLink", class="logoutLink") (Logout)
+                          a#logoutLink.logoutLink(href="/logout") (Logout)
                         .pull-right
                           h6 via
-                          a(class='loginSource pull-right') Google
+                          a.loginSource.pull-right Google
               .row
-                hr(class='leftContentDivider')
+                hr.leftContentDivider
               .row
             else
               h3 Login with
               .loginIconBar
-                a(href='/auth/twitter', style='border: 0px')
-                  img(class='loginIcon', src='images/login icons/twitter-new.png')
+                a.twitterIcon(href='/auth/twitter')
+                  img.loginIcon(src='images/login icons/twitter-new.png')
                 a(href='auth/facebook')
-                  img(class='loginIcon', src='images/login icons/facebook-new.png')
+                  img.loginIcon(src='images/login icons/facebook-new.png')
                 a(href='auth/google')
-                  img(class='loginIcon', src='images/login icons/google-new.png')
+                  img.loginIcon(src='images/login icons/google-new.png')
               hr
-              h3(style='font-size:1.3em')
+              h3.watch-demo
                 a(href='http://youtu.be/F4hA1A1PVxw') Watch Demo (3m 50s)
               #demovid
-                iframe(width='300', height='169', src='https://www.youtube.com/embed/F4hA1A1PVxw', frameborder='0', allowfullscreen='true')
-        .span8#loginRightContent
+                iframe(width='300'
+                       height='169' 
+                       src='https://www.youtube.com/embed/F4hA1A1PVxw'
+                       frameborder='0'
+                       allowfullscreen='true')
+        #loginRightContent.span8
             if !everyauth.loggedIn
                 .row
                   .span4
                     h3 &nbsp;
                   .span4
-                    .btn-toolbar.pull-left#rightContentButton
+                    #rightContentButton.btn-toolbar.pull-left
                       .btn-group
-                        button(class='greyButton') Version: 0.6Alpha
+                        button.greyButton Version: 0.6Alpha
                       .btn-group
-                        button(class='greyButton') Last updated July 31,2012
+                        button.greyButton Last updated July 31,2012
                 .row
                   .span8
                 .row
-                  hr(class='dashes')
+                  hr.dashes
                 .row
                   .span6.rightContent.carouselTitle
                     h3 Sample whiteboards
@@ -156,137 +173,157 @@ html
                     #myCarousel.carousel.slide
                       .carousel-inner
                         .active.item
-                          ul(class='thumbnails')
-                            li(class='span3 leftThumbnail')
+                          ul.thumbnails
+                            li.span3.leftThumbnail
                                 .thumbnail.sampleWb
-                                  img(src='images/whiteboard1.png', alt='')
+                                  img(src='images/whiteboard1.png' 
+                                      alt='')
                                 .thumbnailText
-                            li(class='span3 rightThumbnail')
+                            li.span3.rightThumbnail
                                 .thumbnail.sampleWb
-                                  img(src='images/whiteboard2.png', alt='')
+                                  img(src='images/whiteboard2.png' 
+                                      alt='')
                                 .thumbnailText
                         .item
-                          ul(class='thumbnails')
-                            li(class='span3 leftThumbnail')
+                          ul.thumbnails
+                            li.span3.leftThumbnail
                                 .thumbnail.sampleWb
-                                  img(src='images/whiteboard1.png', alt='')
+                                  img(src='images/whiteboard1.png' 
+                                      alt='')
                                 .thumbnailText
-                            li(class='span3 rightThumbnail')
+                            li.span3.rightThumbnail
                                 .thumbnail.sampleWb
-                                  img(src='images/whiteboard2.png', alt='')
+                                  img(src='images/whiteboard2.png' 
+                                      alt='')
                                 .thumbnailText
-                      a(class='carousel-control homepage left', href='#myCarousel', data-slide='prev') &lsaquo;
-                      a(class='carousel-control homepage right', href='#myCarousel', data-slide='next') &rsaquo;
+                      a.carousel-control.homepage.left(href='#myCarousel' 
+                                                       data-slide='prev') &lsaquo;
+                      a.carousel-control.homepage.right(href='#myCarousel' 
+                                                        data-slide='next') &rsaquo;
             else
                 .row
                   .span8.pull-left
                     h3.dashboardRightContentHeading Owned by me
                 .row
-                  .span8.columns.whiteboardList#ownedBoardList
-                    ul(class='thumbnails')
+                  #ownedBoardList.span8.columns.whiteboardList
+                    ul.thumbnails
                     for board in ownedBoards
-                      li(class='span2 dashboard#{ownedBoards.indexOf(board) == 0 || ownedBoards.indexOf(board)%3 == 0 ? "Left" : "Right"}Thumbnail #{ownedBoards.indexOf(board) > 2 ? "ownedBoardHide" : ""}')
+                      li(class='span2 #{ownedBoards.indexOf(board) > 2 ? "ownedBoardHide" : ""}')
                         .thumbnail.dashboardThumbnail.dashboardWhiteBoardItem
-                          #foo&attributes({'data-foo': 'bar'})
-                          .delete-board&attributes({boardUrl:board.url, name:board.name, title:'Delete Board'})
+                          .delete-board&attributes({boardUrl:board.url, 
+                                                    name:board.name, 
+                                                    title:'Delete Board'})
                             center
                               .delete-ico
                           a(href='/boards/#{board.url}')
-                            img(src='images/140x120.gif', alt='')
+                            img(src='images/140x120.gif' 
+                                alt='')
                           .thumbnailText
-                            p(class='thumbnailCaption editable', id='board-name-#{board.id}') #{board.name}
+                            p.thumbnailCaption.editable(id='board-name-#{board.id}') #{board.name}
                 .row
-                  .span2.offset6#showAllCreateWhiteBoard
-                    a(class='pull-left', href='#', id='showOwned') Show all
+                  #showAllCreateWhiteBoard.span2.offset6
+                    a#showOwned.pull-left(href='#') Show all
                 .row
-                  hr(class='dashes')
+                  hr.dashes
                 .row
                   .span8.dashboardRightContent
                     h3.dashboardRightContentHeading Shared with me
                 .row
                   .span8.columns.whiteboardList
-                    ul(class='thumbnails')
+                    ul.thumbnails
                     for board in sharedBoards
-                      li(class='span2 dashboard#{sharedBoards.indexOf(board) == 0 || sharedBoards.indexOf(board)%3 == 0 ? "Left" : "Right"}Thumbnail #{sharedBoards.indexOf(board) > 2 ? "sharedBoardHide" : ""}')
+                      li(class='span2 #{sharedBoards.indexOf(board) > 2 ? "sharedBoardHide" : ""}')
                         .thumbnail.dashboardThumbnail.dashboardWhiteBoardItem
                           a(href='/boards/#{board.url}')
-                            img(src='images/140x120.gif', alt='')
+                            img(src='images/140x120.gif' 
+                                alt='')
                           .thumbnailText
                             p.thumbnailCaption #{board.name}
                             p.thumbnailCaption #{board.createdBy}
                 .row
-                  .span2.offset6#showAllCreateWhiteBoard
-                    a(class='pull-left', href='#', id='showShared') Show all
+                  #showAllCreateWhiteBoard.span2.offset6
+                    a#showShared.pull-left(href='#') Show all
 
 
-      .row#loginFooterDivider
+      #loginFooterDivider.row
 
-        .span4#loginFooterDividerLeft
+        #loginFooterDividerLeft.span4
 
-        .span8#loginFooterDividerRight
+        #loginFooterDividerRight.span8
 
 
-      .row#loginFooter
+      #loginFooter.row
 
-        .span4.leftFooter#loginLeftFooter
-          .row#leftFooterIcon
+        #loginLeftFooter.span4.leftFooter
+          #leftFooterIcon.row
             .span
-              a(href="https://plus.google.com/109117794938178674717", rel="publisher") Find us on Google+
+              a(href="https://plus.google.com/109117794938178674717"
+                rel="publisher") Find us on Google+
             .span.pull-right
 
-        .span8#loginRightFooter
+        #loginRightFooter.span8
           #footer
            .footerInner
              .footerMenu
                a(href='https://github.com/Imaginea/matisse/wiki') Matisse Wiki
                a(href='https://github.com/Imaginea/matisse') Github Repository
                a(href='https://github.com/Imaginea/matisse/issues') Bug Tracker
-        .modal.hide.fade#whiteboardForm
+        #whiteboardForm.modal.hide.fade
           .modal-header
             h4 New whiteboard
-              a(class='close', data-dismiss='modal') x
+              a.close(data-dismiss='modal') x
           .modal-body
-            form(name='whiteboard', id='whiteboard', class='form-horizontal', method='post', action='/boards/')
+            form#whiteboard.form-horizontal(name='whiteboard' 
+                                            method='post'
+                                            action='/boards/')
               fieldset
-                .control-group#whiteboardName
-                  label(class='control-label', for='whiteboardName') Name*:
+                #whiteboardName.control-group
+                  label.control-label(for='whiteboardName') Name*:
                   .controls
-                    input(name='whiteboardName', id="name", type="text", placeholder="Name")
+                    input#name(name='whiteboardName' 
+                               type="text"
+                               placeholder="Name")
                     #nameError Please enter a valid name!
-                .control-group#containerlist
-                  label(class='control-label', for='containerListInput') Container type:
+                #containerlist.control-group
+                  label.control-label(for='containerListInput') Container type:
                   .controls
-                    select(name='container', id="containers")
-                      option(value="desktop-1024x768", id="desktop-1024x768") Desktop-1024x768
-                      option(value="desktop-1280x1024", id="desktop-1280x1024") Desktop-1280x1024
-                      option(value="iphone", id="iPhone") iPhone
-                      option(value="ipad", id="iPad") iPad
-                      option(value="blackberry", id="BlackBerry") BlackBerry
-                      option(value="browser", id="Browser") Browser
-                .control-group#layoutList
-                  label(class='control-label', for='layoutListInput') Template:
+                    select#containers(name='container')
+                      option#desktop-1024x768(value="desktop-1024x768") Desktop-1024x768
+                      option#desktop-1280x1024(value="desktop-1280x1024") Desktop-1280x1024
+                      option#iPhone(value="iphone") iPhone
+                      option#iPad(value="ipad") iPad
+                      option#BlackBerry(value="blackberry") BlackBerry
+                      option#Browser(value="browser") Browser
+                #layoutList.control-group
+                  label.control-label(for='layoutListInput') Template:
                   .controls
-                    select(name='layout', id="layouts")
+                    select#layouts(name='layout')
                       optgroup(label="content")
-                        option(value="blank", id="blank") Blank
-                        option(value="column_header", id="column_header") Column_header
-                        option(value="column_header_footer", id="column_header_footer") Column_Header_Footer
-                        option(value="two_column_header", id="two_column_header") Two_Column_Header
-                        option(value="two_column_header_footer", id="two_column_header_footer") Two_Column_Header_Footer
-                        option(value="three_column_header", id="three_column_header") Three_Column_Header
-                        option(value="three_column_header_footer", id="three_column_header_footer") Three_Column_Header_Footer
-                .control-group#canvaswidth
-                  label(class='control-label', for='canvasWidth') Canvas Width:
+                        option#blank(value="blank") Blank
+                        option#column_header(value="column_header") Column_header
+                        option#column_header_footer(value="column_header_footer") Column_Header_Footer
+                        option#two_column_header(value="two_column_header") Two_Column_Header
+                        option#two_column_header_footer(value="two_column_header_footer") Two_Column_Header_Footer
+                        option#three_column_header(value="three_column_header") Three_Column_Header
+                        option#three_column_header_footer(value="three_column_header_footer") Three_Column_Header_Footer
+                #canvaswidth.control-group
+                  label.control-label(for='canvasWidth') Canvas Width:
                   .controls
-                    input(name='canvasWidth', id="canvasWidth", type="text", value="1024")
-                .control-group#canvasheight
-                  label(class='control-label', for='canvasWidth') Canvas Height:
+                    input#canvasWidth(name='canvasWidth'
+                          type="text"
+                          value="1024")
+                #canvasheight.control-group
+                  label.control-label(for='canvasWidth') Canvas Height:
                   .controls
-                    input(name='canvasHeight', id="canvasHeight", type="text", value="768")
+                    input#canvasHeight(name='canvasHeight' 
+                                       type="text"
+                                       value="768")
           .modal-footer
-            p(class="help-block pull-left") *Required
-            a(href='#', class='btn btn-primary', data-dismiss='modal', id='createWhiteboard') Create
-            a(href='#', class='btn', data-dismiss='modal') Cancel
-script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap-carousel.js')
-script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap-modal-dialog.js')
-script(type='text/javascript', src='/javascripts/matisse/showAll.js')
+            p.help-block.pull-left *Required
+            a#createWhiteboard.btn.btn-primary(href='#' 
+                                               data-dismiss='modal') Create
+            a.btn(href='#'
+                  data-dismiss='modal') Cancel
+  script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap-carousel.js')
+  script(type='text/javascript', src='/javascripts/thirdparty/bootstrap/bootstrap-modal-dialog.js')
+  script(type='text/javascript', src='/javascripts/matisse/showAll.js')

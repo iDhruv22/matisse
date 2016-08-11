@@ -603,9 +603,6 @@ ul.newFeatureList {
 .leftThumbnail {
     padding-left: 0px;
 }
-dashboardLeftThumbnail {
-
-}
 .thumbnailText {
     color: #d3dae5;
     padding-top: 15px;
@@ -935,4 +932,10 @@ div.inactive-alert {display:none; left: 37%; position: absolute; top: 0;}
 }
 .pr10 {
   padding-right: 10px;
+}
+.twitterIcon {
+  border: 0;
+}
+#loginLeftContent .watch-demo {
+  font-size:1.3em;
 }

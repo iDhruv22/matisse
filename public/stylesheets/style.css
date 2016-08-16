@@ -603,9 +603,6 @@ ul.newFeatureList {
 .leftThumbnail {
     padding-left: 0px;
 }
-dashboardLeftThumbnail {
-
-}
 .thumbnailText {
     color: #d3dae5;
     padding-top: 15px;
@@ -911,8 +908,8 @@ div.inactive-alert {display:none; left: 37%; position: absolute; top: 0;}
 .json-export {height:65%; width:90%}
 
 .thumbnailCaption.editable {
-    background-image:url('../images/icon-pencil.png'); 
-    background-repeat:no-repeat; 
+    background-image:url('../images/icon-pencil.png');
+    background-repeat:no-repeat;
     padding:0 0 0 15px;
 }
 
@@ -928,4 +925,17 @@ div.inactive-alert {display:none; left: 37%; position: absolute; top: 0;}
 /************** Delete WhiteBoard Transition -- End -- ************/
 
 #device-container{ position:absolute; display:none;cursor: move;}
-.scale-container{ transform: scale(0.75); -moz-transform: scale(0.75); -webkit-transform: scale(0.75); -ms-transform: scale(0.75); -o-transform: scale(0.75);} 
+.scale-container{ transform: scale(0.75); -moz-transform: scale(0.75); -webkit-transform: scale(0.75); -ms-transform: scale(0.75); -o-transform: scale(0.75);}
+
+#canvaswidth, #layoutList, #containerlist, #canvasheight, #whiteboardForm {
+  display: none;
+}
+.pr10 {
+  padding-right: 10px;
+}
+.twitterIcon {
+  border: 0;
+}
+#loginLeftContent .watch-demo {
+  font-size:1.3em;
+}

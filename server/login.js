@@ -10,6 +10,11 @@ module.exports = {
 
       var users = {};
 
+      everyauth.everymodule
+        .findUserById(function(id, callback) {
+          callback(null, usersById[id]);
+        });
+
       everyauth
         .facebook
         .appId(conf.fb.appId)
@@ -55,6 +60,7 @@ module.exports = {
         .appId(conf.google.appId)
         .appSecret(conf.google.appSecret)
         .scope('https://www.googleapis.com/auth/userinfo.profile')
+        .callbackPath('/oauthcallback')
         .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
           user.refreshToken = accessSecret.refresh_token;
           user.expiresIn = accessSecret.expires_in;
@@ -74,7 +80,7 @@ module.exports = {
       everyauth.facebook.sendResponse(function(res, data) {
         var session = data.session;
         res.redirect(session.redirectPath || // Re-direct to the path stored in the session by route middleware
-          this.redirectPath()); // Or redirect to the configured redirectPath
+          '/'); // Or redirect to the configured redirectPath
       });
 
       everyauth.twitter.sendResponse(function(res, data) {
@@ -86,13 +92,8 @@ module.exports = {
       everyauth.google.sendResponse(function(res, data) {
         var session = data.session;
         res.redirect(session.redirectPath || // Re-direct to the path stored in the session by route middleware
-          this.redirectPath()); // Or redirect to the configured redirectPath
+          '/'); // Or redirect to the configured redirectPath
       });
-
-      everyauth.everymodule
-        .findUserById(function(id, callback) {
-          callback(null, usersById[id]);
-        });
 
       function addUser(source, sourceUser) {
         var user;
